@@ -1,0 +1,10 @@
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+**/.github
+**/.nuxt
+**/.output
+**/pnpm-lock.yaml
+**/package.json
