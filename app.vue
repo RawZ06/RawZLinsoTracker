@@ -1,55 +1,27 @@
 <script setup lang="ts">
-const links = [
-  {
-    label: "Documentation",
-    icon: "i-heroicons-book-open",
-    to: "/getting-started",
-  },
-  {
-    label: "Playground",
-    icon: "i-simple-icons-stackblitz",
-    to: "/playground",
-  },
-  {
-    label: "Roadmap",
-    icon: "i-heroicons-map",
-    to: "/roadmap",
-  },
-  {
-    label: "Pro",
-    icon: "i-heroicons-square-3-stack-3d",
-    to: "/pro",
-  },
-  {
-    label: "Releases",
-    icon: "i-heroicons-rocket-launch",
-    to: "https://github.com/nuxt/ui/releases",
-    target: "_blank",
-  },
-];
+const wrapper =
+  "min-h-[calc(100vh-2*var(--header-height))] h-[1px] overflow-scroll";
 </script>
 
 <template>
-  <UHeader :links="links">
+  <UHeader>
     <template #logo>
-      <Logo class="w-auto h-6" />
+      <span>Nuxt Boilerplate</span>
     </template>
 
     <template #right>
       <UColorModeButton />
-
-      <UButton
-        icon="i-simple-icons-github"
-        to="https://github.com/nuxt/nuxt"
-        target="_blank"
-        color="gray"
-        variant="ghost"
-      />
     </template>
   </UHeader>
 
-  <UMain>
+  <UMain
+    :ui="{
+      wrapper,
+    }"
+    style=""
+  >
     <NuxtLayout>
+      <NuxtLoadingIndicator />
       <NuxtPage />
     </NuxtLayout>
   </UMain>
@@ -57,7 +29,7 @@ const links = [
   <UFooter>
     <template #left>
       <p class="text-gray-500 dark:text-gray-400 text-sm">
-        Copyright © 2016-{{ new Date().getFullYear() }} Nuxt -
+        Copyright © {{ new Date().getFullYear() }} RawZ06 -
         <NuxtLink
           class="hover:underline"
           to="https://github.com/nuxt/nuxt/blob/main/LICENSE"
