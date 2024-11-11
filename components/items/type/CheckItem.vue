@@ -1,19 +1,32 @@
 <script setup>
-import {ref} from "vue";
 import IconItem from "../IconItem.vue";
 import ImageCrop from "../../utils/ImageCrop.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 import {useTrackerCheckItem} from "~/hooks/useTrackerCheckItem.js";
+import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive} = useTrackerItem(props.item)
+const {position, defaultActive, name} = useTrackerItem(props.item)
 const {sheet} = useTrackerCheckItem(props.item)
-const active = ref(defaultActive.value);
-const checkActive = ref(false);
 const trackerStore = useTrackerStore();
 const itemSheetImage = trackerStore.itemSheetImage(sheet.value.name)
 const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
+
+const stateStore = useTrackerStateStore()
+if(!stateStore.trackerState[name.value]) {
+  stateStore.trackerState[name.value] = {
+    checkActive: false,
+    active: defaultActive
+  }
+}
+
+const updateCheckActive = (value) => {
+  stateStore.update(name.value, {...stateStore.trackerState[name.value], checkActive: !stateStore.trackerState[name.value].checkActive});
+}
+const updateActive = () => {
+  stateStore.update(name.value, {...stateStore.trackerState[name.value], active: !stateStore.trackerState[name.value].active});
+}
 </script>
 
 <template>
@@ -23,15 +36,15 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="active = !active"
-      @contextmenu.prevent="checkActive = !checkActive"
+      @click="updateActive()"
+      @contextmenu.prevent="updateCheckActive()"
   >
     <IconItem
       :item="item"
-      :active="active"
+      :active="stateStore.trackerState[name].active"
     ></IconItem>
     <div class="relative">
-      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !checkActive}">
+      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !stateStore.trackerState[name].checkActive}">
         <ImageCrop
             :image="itemSheetImage"
             :width="itemSheetDimensions.width"

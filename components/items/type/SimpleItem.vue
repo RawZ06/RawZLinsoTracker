@@ -1,12 +1,19 @@
 <script setup>
-import {ref} from "vue";
 import IconItem from "../IconItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
+import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive} = useTrackerItem(props.item)
-const active = ref(defaultActive.value);
+const {position, name, defaultActive} = useTrackerItem(props.item)
+const stateStore = useTrackerStateStore()
+if(stateStore.trackerState[name.value] === undefined) {
+  stateStore.update(name.value, defaultActive === true)
+}
+
+const update = () => {
+  stateStore.update(name.value, !stateStore.trackerState[name.value]);
+}
 </script>
 
 <template>
@@ -16,12 +23,12 @@ const active = ref(defaultActive.value);
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="active = !active"
-      @contextmenu.prevent="active = !active"
+      @click="update()"
+      @contextmenu.prevent="update()"
   >
     <IconItem
       :item="item"
-      :active="active"
+      :active="stateStore.trackerState[name]"
     ></IconItem>
   </div>
 </template>

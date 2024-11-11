@@ -1,15 +1,28 @@
 <script setup>
-import {computed, ref} from "vue";
+import {computed} from "vue";
 import IconItem from "../IconItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
+import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, labels} = useTrackerItem(props.item)
-const active = ref(defaultActive.value);
-const state = ref(0)
+const {position, defaultActive, name, labels} = useTrackerItem(props.item)
+const stateStore = useTrackerStateStore()
+if(!stateStore.trackerState[name.value]) {
+  stateStore.trackerState[name.value] = {
+    state: 0,
+    active: defaultActive
+  }
+}
+
+const updateState = (value) => {
+  stateStore.update(name.value, {...stateStore.trackerState[name.value], state: value});
+}
+const updateActive = () => {
+  stateStore.update(name.value, {...stateStore.trackerState[name.value], active: !stateStore.trackerState[name.value].active});
+}
 const currentLabel = computed(() => {
-  return labels.value[state.value]
+  return labels.value[stateStore.trackerState[name.value].state]
 })
 </script>
 
@@ -20,12 +33,12 @@ const currentLabel = computed(() => {
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="active = !active"
-      @contextmenu.prevent="state = (state+1)%labels.length"
+      @click="updateActive()"
+      @contextmenu.prevent="updateState((stateStore.trackerState[name].state+1)%labels.length)"
   >
     <IconItem
         :item="item"
-        :active="active"
+        :active="stateStore.trackerState[name].active"
     ></IconItem>
     <div :style="{fontFamily: 'labelItemFont'}" class="z-20 text-white absolute top-[30px] w-full text-center text-xs select-none">
       {{currentLabel}}
