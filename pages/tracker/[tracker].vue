@@ -4,24 +4,34 @@ import {useTrackerStore} from "~/stores/tracker-store.js";
 
 const route = useRoute()
 const tracker = route.params.tracker
+const loaded = ref(false)
+const dimensions = ref(null)
+const background = ref("")
+const backgroundColor = ref("")
 
 const trackerStore = useTrackerStore()
-trackerStore.load(tracker);
+trackerStore.load(tracker).then((status) => {
+  loaded.value = status;
+  const dim = trackerStore.dimensions();
+  const bg = trackerStore.background();
+  const bgColor = trackerStore.backgroundColor();
 
-const dimensions = trackerStore.dimensions();
-const background = trackerStore.background();
-const backgroundColor = trackerStore.backgroundColor();
-const loaded = trackerStore.loaded;
+  dimensions.value = dim;
+  background.value = bg;
+  backgroundColor.value = bgColor;
+});
+
+
 
 </script>
 
 <template>
 <div v-if="loaded" class="">
   <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
-    <ItemList  />
-    <img :src="background" alt="Background" class="absolute inset-0 z-0">
+      <ItemList  />
+      <img :src="background" alt="Background" class="absolute inset-0 z-0">
+    </div>
   </div>
-</div>
   <div v-else>
     Loading...
   </div>

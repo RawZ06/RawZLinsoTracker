@@ -4,20 +4,19 @@ import {convertRgb} from "~/utils/convertRgbToHex.js";
 export const useTrackerStore = defineStore("tracker", {
     state: () => ({
         data: null,
-        loaded: false,
         trackerName: null
     }),
     actions: {
-        load(trackerName) {
-            fetch('/sources/' + trackerName + '/tracker.json').then(async (res) => {
+        async load(trackerName) {
+            return fetch('/sources/' + trackerName + '/tracker.json').then(async (res) => {
                 try {
                     this.data = await res.json();
                     this.trackerName = trackerName
-                    this.loaded = true;
+                    return true;
                 } catch (error) {
-                    //failed loading is always true
+                    return false
                 }
-            })
+            }).catch(() => false)
         },
 
         dimensions() {
