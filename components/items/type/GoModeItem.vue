@@ -3,12 +3,13 @@ import {ref} from "vue";
 import IconItem from "../IconItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 
-const props = defineProps(['item', 'itemSheetImage', 'itemSheet', 'itemSheetDimensions', 'tracker'])
+const props = defineProps(['item'])
 
 const {position, defaultActive, glow, sheet} = useTrackerItem(props.item)
-const {itemSheet, itemSheetDimensions} = props;
+const trackerStore = useTrackerStore();
 const active = ref(defaultActive.value);
-const glowImage = glow.value(props.tracker)
+const glowImage = glow.value(trackerStore.trackerName)
+const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
 </script>
 
 :width=""
@@ -27,14 +28,11 @@ const glowImage = glow.value(props.tracker)
     <IconItem
         v-if="active"
         :item="item"
-        :itemSheetImage="itemSheetImage"
-        :itemSheet="itemSheet"
-        :itemSheetDimensions="itemSheetDimensions"
         :active="active"
     ></IconItem>
     <div v-else :style="{
-      width: itemSheetDimensions(sheet.name).width + 'px',
-      height: itemSheetDimensions(sheet.name).height + 'px',
+      width: itemSheetDimensions.width + 'px',
+      height: itemSheetDimensions.height + 'px',
     }"></div>
   </div>
   <div class="absolute z-20 select-none pointer-events-none -translate-x-1/2 -translate-y-1/2 duration-1000	" :style="{

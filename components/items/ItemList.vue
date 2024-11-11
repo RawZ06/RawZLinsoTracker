@@ -2,15 +2,18 @@
 import Item from "./Item.vue";
 import {useCustomFont} from "~/hooks/useCustomFont.js";
 
-const props = defineProps(['items', 'itemSheetImage', 'itemSheetDimensions', 'fonts', 'tracker'])
-for(let font of props.fonts) {
-  useCustomFont(props.tracker, font.name, font.filename)
+const trackerStore = useTrackerStore();
+const fonts = trackerStore.fonts();
+const tracker = trackerStore.trackerName;
+const items = trackerStore.items();
+for(let font of fonts) {
+  useCustomFont(tracker, font.name, font.filename)
 }
 </script>
 
 <template>
-  <div v-for="item of props.items" class="relative">
-    <Item :itemSheetImage="itemSheetImage" :item="item" :tracker="tracker" :itemSheetDimensions="itemSheetDimensions" />
+  <div v-for="item of items" class="relative">
+    <Item :item="item" />
   </div>
 </template>
 

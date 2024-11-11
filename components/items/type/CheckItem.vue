@@ -5,13 +5,15 @@ import ImageCrop from "../../utils/ImageCrop.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 import {useTrackerCheckItem} from "~/hooks/useTrackerCheckItem.js";
 
-const props = defineProps(['item', 'itemSheetImage', 'itemSheet', 'itemSheetDimensions'])
+const props = defineProps(['item'])
 
 const {position, defaultActive} = useTrackerItem(props.item)
 const {sheet} = useTrackerCheckItem(props.item)
-const {itemSheet, itemSheetDimensions} = props;
 const active = ref(defaultActive.value);
 const checkActive = ref(false);
+const trackerStore = useTrackerStore();
+const itemSheetImage = trackerStore.itemSheetImage(sheet.value.name)
+const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
 </script>
 
 <template>
@@ -26,17 +28,14 @@ const checkActive = ref(false);
   >
     <IconItem
       :item="item"
-      :itemSheetImage="itemSheetImage"
-      :itemSheet="itemSheet"
-      :itemSheetDimensions="itemSheetDimensions"
       :active="active"
     ></IconItem>
     <div class="relative">
       <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !checkActive}">
         <ImageCrop
-            :image="itemSheetImage(sheet.name)"
-            :width="itemSheetDimensions(sheet.name).width"
-            :height="itemSheetDimensions(sheet.name).height"
+            :image="itemSheetImage"
+            :width="itemSheetDimensions.width"
+            :height="itemSheetDimensions.height"
             :row="sheet.row"
             :column="sheet.column"
         ></ImageCrop>

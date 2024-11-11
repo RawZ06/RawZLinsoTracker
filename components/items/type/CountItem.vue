@@ -3,7 +3,7 @@ import {computed, ref} from "vue";
 import IconItem from "../IconItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 
-const props = defineProps(['item', 'itemSheetImage', 'itemSheet', 'itemSheetDimensions'])
+const props = defineProps(['item'])
 
 const {position, count, defaultActive} = useTrackerItem(props.item)
 const {itemSheet, itemSheetDimensions} = props;
@@ -22,9 +22,6 @@ const state = ref(count.value.start);
   >
     <IconItem
         :item="item"
-        :itemSheetImage="itemSheetImage"
-        :itemSheet="itemSheet"
-        :itemSheetDimensions="itemSheetDimensions"
         :active="defaultActive"
     ></IconItem>
     <div :style="{fontFamily: 'countItemFont'}" class="z-20 text-white absolute top-[2px] right-[-36px] align-middle inline-block text-center w-full text-lg select-none" :class="{'text-green-600': state === count.max}">

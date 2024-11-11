@@ -9,5 +9,6 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@nuxt/fonts",
     "@nuxt/eslint",
+    "@pinia/nuxt",
   ],
 });

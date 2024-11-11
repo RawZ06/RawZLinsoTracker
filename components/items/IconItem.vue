@@ -3,15 +3,18 @@
 import ImageCrop from "../utils/ImageCrop.vue";
 import {useTrackerItemFunction} from "~/hooks/useTrackerItemFunction.js";
 
-const props = defineProps(['item', 'itemSheetImage', 'itemSheet', 'itemSheetDimensions', 'active', 'isMaxLabel'])
+const props = defineProps(['item', 'active', 'isMaxLabel'])
 const {sheet, disabledOpacity, label} = useTrackerItemFunction()
+const trackerStore = useTrackerStore();
+const itemSheetImage = trackerStore.itemSheetImage(sheet.value(props.item).name)
+const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value(props.item).name)
 </script>
 
 <template>
   <ImageCrop
-      :image="itemSheetImage(sheet(props.item).name)"
-      :width="itemSheetDimensions(sheet(props.item).name).width"
-      :height="itemSheetDimensions(sheet(props.item).name).height"
+      :image="itemSheetImage"
+      :width="itemSheetDimensions.width"
+      :height="itemSheetDimensions.height"
       :row="sheet(props.item).row"
       :column="sheet(props.item).column"
       :opacity="active ? 1 : disabledOpacity(props.item)"

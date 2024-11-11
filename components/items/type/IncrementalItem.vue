@@ -3,13 +3,12 @@ import {computed, ref} from "vue";
 import IconItem from "../IconItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 
-const props = defineProps(['item', 'itemSheetImage', 'itemSheet', 'itemSheetDimensions'])
+const props = defineProps(['item'])
 
 const {position, defaultActive, increments} = useTrackerItem(props.item)
 const max = computed(() => {
   return increments.value.length + 2
 })
-const {itemSheet, itemSheetDimensions} = props;
 const state = ref(defaultActive.value ? 1 : 0);
 </script>
 
@@ -25,9 +24,6 @@ const state = ref(defaultActive.value ? 1 : 0);
   >
     <IconItem
         :item="item"
-        :itemSheetImage="itemSheetImage"
-        :itemSheet="itemSheet"
-        :itemSheetDimensions="itemSheetDimensions"
         :active="state > 0"
     ></IconItem>
     <div

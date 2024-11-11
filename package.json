@@ -19,7 +19,9 @@
     "@nuxt/ui": "^2.18.4",
     "@nuxtjs/color-mode": "^3.4.4",
     "@nuxtjs/tailwindcss": "^6.12.1",
-    "nuxt": "^3.13.0",
+    "@pinia/nuxt": "^0.5.5",
+    "nuxt": "^3.14.159",
+    "pinia": "^2.2.6",
     "vue": "latest"
   },
   "devDependencies": {
@@ -29,5 +31,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "prettier": "^3.3.3",
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "pnpm@8.15.4+sha1.c85a4305534f76d461407b59277b954bac97b5c4"
 }
