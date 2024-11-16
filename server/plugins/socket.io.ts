@@ -7,6 +7,7 @@ let groupTrackers: Record<string, any> = {}; // État global organisé par group
 export default defineNitroPlugin((nitroApp) => {
     const engine = new Engine();
     const io = new Server();
+    io.adapter(require('socket.io-adapter')());
 
     io.bind(engine);
 

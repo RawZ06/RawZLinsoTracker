@@ -9,7 +9,6 @@ export const useTrackerStateStore = defineStore("default-state", {
     }),
     actions: {
         update(item, current) {
-            this.isLocalUpdate = true
             this.trackerState[item] = current
 
             if(this.subscription) {

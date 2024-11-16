@@ -4,6 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "build:cloudflare": "NITRO_PRESET=cloudflare_pages nuxt build",
+    "serve:cloudflare": "npx wrangler pages dev dist/",
+    "build:serve": "NITRO_PRESET=cloudflare_pages nuxt build && npx wrangler pages dev dist/",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
