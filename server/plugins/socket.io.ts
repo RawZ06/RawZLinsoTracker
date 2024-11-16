@@ -12,11 +12,11 @@ export default defineNitroPlugin((nitroApp) => {
 
     // Gestion des connexions des sockets
     io.on("connection", (socket: Socket) => {
-        console.debug("Nouvelle connexion :", socket.id);
+        // console.debug("Nouvelle connexion :", socket.id);
 
         // Gestion de l'entrée dans un groupe
         socket.on('joinGroup', (groupId: string) => {
-            console.debug(`Client ${socket.id} a rejoint le groupe ${groupId}`);
+            // console.debug(`Client ${socket.id} a rejoint le groupe ${groupId}`);
             socket.join(groupId);
 
             // Envoyer l'état actuel du groupe au client
@@ -42,7 +42,7 @@ export default defineNitroPlugin((nitroApp) => {
 
             // Mettre à jour l'état du groupe
             groupTrackers[id] = tracker;
-            console.debug(`Mise à jour du tracker pour le groupe ${id}:`, tracker);
+            // console.debug(`Mise à jour du tracker pour le groupe ${id}:`, tracker);
 
             // Diffuser la mise à jour à tous les membres du groupe
             io.to(id).emit('tracker', { id, tracker });
@@ -50,7 +50,7 @@ export default defineNitroPlugin((nitroApp) => {
 
         // Gestion de la déconnexion
         socket.on("disconnect", (reason) => {
-            console.debug(`Déconnexion du client ${socket.id} :`, reason);
+            // console.debug(`Déconnexion du client ${socket.id} :`, reason);
         });
     });
 
