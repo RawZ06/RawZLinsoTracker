@@ -4,15 +4,25 @@ export const useTrackerStateStore = defineStore("tracker-state", {
     state: () => ({
         trackerState: {
 
-        }
+        },
+        subscription: null
     }),
     actions: {
         update(item, current) {
+            this.isLocalUpdate = true
             this.trackerState[item] = current
+
+            if(this.subscription) {
+                this.subscription(this.trackerState)
+            }
         },
 
-        get(item) {
-            return this.trackerState[item];
+        subscribe(callback) {
+            this.subscription = callback
+        },
+
+        unsubscribe() {
+            this.subscription = null
         }
     }
 });

@@ -5,8 +5,6 @@ export function useCustomFont(tracker, fontName, fontFileName) {
 
     function loadFont(fontName, fontFile) {
         const fontFace = new FontFace(fontName, `url(/${fontFile}) format('truetype')`);
-        console.log(fontFile)
-        console.log(fontFace);
         fontFace.load().then((loadedFace) => {
             document.fonts.add(loadedFace);
         }).catch((error) => {

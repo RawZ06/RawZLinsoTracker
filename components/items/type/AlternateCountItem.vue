@@ -5,13 +5,13 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, max, name} = useTrackerItem(props.item)
+const {position, max, id} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
-if(stateStore.trackerState[name.value] === undefined) {
-  stateStore.update(name.value, 0)
+if(stateStore.trackerState[id.value] === undefined) {
+  stateStore.update(id.value, 0)
 }
 const update = (value) => {
-  stateStore.update(name.value, value);
+  stateStore.update(id.value, value);
 }
 </script>
 
@@ -22,16 +22,16 @@ const update = (value) => {
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="update((stateStore.trackerState[name] + 1)%(max + 1))"
-      @contextmenu.prevent="update((stateStore.trackerState[name] === 0 ? max : (stateStore.trackerState[name] - 1)%(max+1)))"
+      @click="update((stateStore.trackerState[id] + 1)%(max + 1))"
+      @contextmenu.prevent="update((stateStore.trackerState[id] === 0 ? max : (stateStore.trackerState[id] - 1)%(max+1)))"
 
   >
     <IconItem
         :item="item"
-        :active="stateStore.trackerState[name] > 0"
+        :active="stateStore.trackerState[id] > 0"
     ></IconItem>
-    <div :style="{fontFamily: 'countItemFont'}" class="z-20 text-white absolute bottom-[-3px] right-[-10px] align-middle inline-block text-center w-full text-lg select-none" :class="{'text-green-600': stateStore.trackerState[name] === max, hidden: stateStore.trackerState[name] === 0}">
-      {{stateStore.trackerState[name]}}
+    <div :style="{fontFamily: 'countItemFont'}" class="z-20 text-white absolute bottom-[-3px] right-[-10px] align-middle inline-block text-center w-full text-lg select-none stroke-black" :class="{'!text-green-600': stateStore.trackerState[id] === max, hidden: stateStore.trackerState[id] === 0}">
+      {{stateStore.trackerState[id]}}
     </div>
   </div>
 </template>

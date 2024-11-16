@@ -5,14 +5,14 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, name, defaultActive} = useTrackerItem(props.item)
+const {position, id, defaultActive} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
-if(stateStore.trackerState[name.value] === undefined) {
-  stateStore.update(name.value, defaultActive === true)
+if(stateStore.trackerState[id.value] === undefined) {
+  stateStore.update(id.value, defaultActive.value === true)
 }
 
 const update = () => {
-  stateStore.update(name.value, !stateStore.trackerState[name.value]);
+  stateStore.update(id.value, !stateStore.trackerState[id.value]);
 }
 </script>
 
@@ -28,7 +28,7 @@ const update = () => {
   >
     <IconItem
       :item="item"
-      :active="stateStore.trackerState[name]"
+      :active="stateStore.trackerState[id]"
     ></IconItem>
   </div>
 </template>

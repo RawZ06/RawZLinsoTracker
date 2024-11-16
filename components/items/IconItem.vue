@@ -20,7 +20,7 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value(props.i
       :opacity="active ? 1 : disabledOpacity(props.item)"
       :grayScale="!active"
   ></ImageCrop>
-  <div :style="{fontFamily: 'evolutionItemFont'}" class="z-20 text-white absolute top-[20px] right-[0px] select-none" :class="{'hidden': !label(props.item) || !active, 'text-green-600': isMaxLabel}">
+  <div :style="{fontFamily: 'evolutionItemFont'}" class="z-20 text-white absolute top-[20px] right-[0px] select-none stroke-black" :class="{'hidden': !label(props.item) || !active, '!text-green-600': isMaxLabel}">
     {{label(props.item)}}
   </div>
 </template>

@@ -7,25 +7,25 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, name} = useTrackerItem(props.item)
+const {position, defaultActive, id} = useTrackerItem(props.item)
 const {sheet} = useTrackerCheckItem(props.item)
 const trackerStore = useTrackerStore();
 const itemSheetImage = trackerStore.itemSheetImage(sheet.value.name)
 const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
 
 const stateStore = useTrackerStateStore()
-if(!stateStore.trackerState[name.value]) {
-  stateStore.trackerState[name.value] = {
+if(!stateStore.trackerState[id.value]) {
+  stateStore.trackerState[id.value] = {
     checkActive: false,
-    active: defaultActive
+    active: defaultActive.value
   }
 }
 
 const updateCheckActive = (value) => {
-  stateStore.update(name.value, {...stateStore.trackerState[name.value], checkActive: !stateStore.trackerState[name.value].checkActive});
+  stateStore.update(id.value, {...stateStore.trackerState[id.value], checkActive: !stateStore.trackerState[id.value].checkActive});
 }
 const updateActive = () => {
-  stateStore.update(name.value, {...stateStore.trackerState[name.value], active: !stateStore.trackerState[name.value].active});
+  stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
 }
 </script>
 
@@ -41,10 +41,10 @@ const updateActive = () => {
   >
     <IconItem
       :item="item"
-      :active="stateStore.trackerState[name].active"
+      :active="stateStore.trackerState[id].active"
     ></IconItem>
     <div class="relative">
-      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !stateStore.trackerState[name].checkActive}">
+      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !stateStore.trackerState[id].checkActive}">
         <ImageCrop
             :image="itemSheetImage"
             :width="itemSheetDimensions.width"

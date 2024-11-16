@@ -6,15 +6,15 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, name, glow, sheet} = useTrackerItem(props.item)
+const {position, defaultActive, id, glow, sheet} = useTrackerItem(props.item)
 const trackerStore = useTrackerStore();
 const stateStore = useTrackerStateStore()
-if(stateStore.trackerState[name.value] === undefined) {
-  stateStore.update(name.value, defaultActive === true)
+if(stateStore.trackerState[id.value] === undefined) {
+  stateStore.update(id.value, defaultActive.value === true)
 }
 
 const update = () => {
-  stateStore.update(name.value, !stateStore.trackerState[name.value]);
+  stateStore.update(id.value, !stateStore.trackerState[id.value]);
 }
 const glowImage = glow.value(trackerStore.trackerName)
 const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
@@ -31,9 +31,9 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
       @contextmenu.prevent="update()"
   >
     <IconItem
-        v-if="stateStore.trackerState[name]"
+        v-if="stateStore.trackerState[id]"
         :item="item"
-        :active="stateStore.trackerState[name]"
+        :active="stateStore.trackerState[id]"
     ></IconItem>
     <div v-else :style="{
       width: itemSheetDimensions.width + 'px',
@@ -43,7 +43,7 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
   <div class="absolute z-20 select-none pointer-events-none -translate-x-1/2 -translate-y-1/2 duration-1000	" :style="{
         left: position.x + 18 + 'px',
         top: position.y + 18 + 'px',
-      }" :class="{hidden: !stateStore.trackerState[name]}">
+      }" :class="{hidden: !stateStore.trackerState[id]}">
     <img class="animate-low-spin" :src="glowImage" alt="glow" />
   </div>
 </template>

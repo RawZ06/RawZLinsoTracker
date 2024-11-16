@@ -17,6 +17,10 @@ export const useTrackerItem= (item) => {
         return item?.Name
     })
 
+    const id = computed(() => {
+        return item?.Id
+    })
+
     const disabledOpacity = computed(() => {
         return item?.OpacityDisable;
     })
@@ -66,5 +70,5 @@ export const useTrackerItem= (item) => {
         return item.maxValue ?? 1;
     })
 
-    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, checkItem, glow, max}
+    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, checkItem, glow, max, id}
 }

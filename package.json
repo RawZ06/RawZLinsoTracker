@@ -22,6 +22,8 @@
     "@pinia/nuxt": "^0.5.5",
     "nuxt": "^3.14.159",
     "pinia": "^2.2.6",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "vue": "latest"
   },
   "devDependencies": {

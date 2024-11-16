@@ -6,23 +6,23 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, name, labels} = useTrackerItem(props.item)
+const {position, defaultActive, id, labels} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
-if(!stateStore.trackerState[name.value]) {
-  stateStore.trackerState[name.value] = {
+if(!stateStore.trackerState[id.value]) {
+  stateStore.trackerState[id.value] = {
     state: 0,
-    active: defaultActive
+    active: defaultActive.value
   }
 }
 
 const updateState = (value) => {
-  stateStore.update(name.value, {...stateStore.trackerState[name.value], state: value});
+  stateStore.update(id.value, {...stateStore.trackerState[id.value], state: value});
 }
 const updateActive = () => {
-  stateStore.update(name.value, {...stateStore.trackerState[name.value], active: !stateStore.trackerState[name.value].active});
+  stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
 }
 const currentLabel = computed(() => {
-  return labels.value[stateStore.trackerState[name.value].state]
+  return labels.value[stateStore.trackerState[id.value].state]
 })
 </script>
 
@@ -34,13 +34,13 @@ const currentLabel = computed(() => {
         top: position.y + 'px',
       }"
       @click="updateActive()"
-      @contextmenu.prevent="updateState((stateStore.trackerState[name].state+1)%labels.length)"
+      @contextmenu.prevent="updateState((stateStore.trackerState[id].state+1)%labels.length)"
   >
     <IconItem
         :item="item"
-        :active="stateStore.trackerState[name].active"
+        :active="stateStore.trackerState[id].active"
     ></IconItem>
-    <div :style="{fontFamily: 'labelItemFont'}" class="z-20 text-white absolute top-[30px] w-full text-center text-xs select-none">
+    <div :style="{fontFamily: 'labelItemFont'}" class="z-20 text-white absolute top-[30px] w-full text-center text-xs select-none stroke-black">
       {{currentLabel}}
     </div>
   </div>
