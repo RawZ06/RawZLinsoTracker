@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const useTrackerStateStore = defineStore("tracker-state", {
+export const useTrackerStateStore = defineStore("default-state", {
     state: () => ({
         trackerState: {
 
