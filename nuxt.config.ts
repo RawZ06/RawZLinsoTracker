@@ -10,10 +10,5 @@ export default defineNuxtConfig({
         "@nuxt/fonts",
         "@nuxt/eslint",
         "@pinia/nuxt",
-    ],
-    nitro: {
-        experimental: {
-            websocket: true
-        },
-    }
+    ]
 });
