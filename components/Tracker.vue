@@ -10,6 +10,7 @@ const loaded = ref(false)
 const dimensions = ref(null)
 const background = ref("")
 const backgroundColor = ref("")
+const isOpen = ref(false)
 
 const trackerStore = useTrackerStore()
 const stateStore = useTrackerStateStore()
@@ -24,15 +25,23 @@ trackerStore.load(props.tracker).then((status) => {
   backgroundColor.value = bgColor;
 });
 
-useTrackerStateStore()
 if(props.id) {
   useSocket(props.id)
+}
+
+const reset = () => {
+  stateStore.clear()
+  isOpen.value = false
 }
 
 </script>
 
 <template>
   <div v-if="loaded" class="">
+    <UButton label="Reset" icon="i-heroicons-trash-solid"
+             size="sm"
+             color="primary"
+             :trailing="false" @click="isOpen = true"/>
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
       <ItemList  />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
@@ -42,6 +51,39 @@ if(props.id) {
     Loading...
   </div>
 <!--  <pre>{{JSON.stringify(stateStore.trackerState, null, 4)}}</pre>-->
+  <UModal v-model="isOpen">
+    <UCard
+        :ui="{
+          base: 'h-full flex flex-col',
+          rounded: '',
+          divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+          body: {
+            base: 'grow'
+          }
+        }"
+    >
+      <template #header>
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+            Are you sure you want to reset this tracker?
+          </h3>
+          <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="-my-1" @click="isOpen = false" />
+        </div>
+      </template>
+
+      <div class="flex justify-end gap-4">
+        <UButton label="No" icon="i-heroicons-x-mark"
+                 size="sm"
+                 color="primary"
+                 variant="outline"
+                 :trailing="false" @click="isOpen = false"/>
+        <UButton label="Yes" icon="i-heroicons-check"
+                 size="sm"
+                 color="red"
+                 :trailing="false" @click="reset()"/>
+      </div>
+    </UCard>
+  </UModal>
 </template>
 
 <style scoped>

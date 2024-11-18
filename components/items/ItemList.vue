@@ -1,6 +1,7 @@
 <script setup>
 import Item from "./Item.vue";
 import {useCustomFont} from "~/hooks/useCustomFont.js";
+import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const trackerStore = useTrackerStore();
 const fonts = trackerStore.fonts();

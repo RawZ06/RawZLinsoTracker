@@ -10,7 +10,7 @@ const {position, defaultActive, id, glow, sheet} = useTrackerItem(props.item)
 const trackerStore = useTrackerStore();
 const stateStore = useTrackerStateStore()
 if(stateStore.trackerState[id.value] === undefined) {
-  stateStore.update(id.value, defaultActive.value === true)
+  stateStore.update(id.value, defaultActive.value === true, true)
 }
 
 const update = () => {

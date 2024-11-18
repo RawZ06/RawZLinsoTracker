@@ -5,16 +5,30 @@ export const useTrackerStateStore = defineStore("default-state", {
         trackerState: {
 
         },
-        subscription: null
+        subscription: null,
+        defaultValue: null,
     }),
     actions: {
-        update(item, current) {
-            this.isLocalUpdate = true
+        update(item, current, isDefault = false) {
+            if(!isDefault && this.defaultValue === null) {
+                this.defaultValue = JSON.parse(JSON.stringify(this.trackerState));
+            }
+
             this.trackerState[item] = current
 
             if(this.subscription) {
                 this.subscription(this.trackerState)
             }
+        },
+
+        clear() {
+            this.trackerState = JSON.parse(JSON.stringify(this.defaultValue));
+
+            if(this.subscription) {
+                this.subscription(this.trackerState)
+            }
+
+            // reloadNuxtApp()
         },
 
         subscribe(callback) {

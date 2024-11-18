@@ -8,7 +8,7 @@ const props = defineProps(['item'])
 const {position, count, id, defaultActive, sheet} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
 if(stateStore.trackerState[id.value] === undefined) {
-  stateStore.update(id.value, count.value.start)
+  stateStore.update(id.value, count.value.start, true)
 }
 const update = (value) => {
   stateStore.update(id.value, value);
