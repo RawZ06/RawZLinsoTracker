@@ -8,6 +8,8 @@ const tracker = trackerStore.trackerName;
 const items = trackerStore.items();
 for(let font of fonts) {
   useCustomFont(tracker, font.name, font.filename)
+  document.documentElement.style.setProperty('--color-' + font.name, font.colors[0]);
+  document.documentElement.style.setProperty('--color-' + font.name + '-max', font.colors[1]);
 }
 </script>
 

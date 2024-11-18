@@ -30,7 +30,7 @@ const update = (value) => {
         :item="item"
         :active="stateStore.trackerState[id] > 0"
     ></IconItem>
-    <div :style="{fontFamily: 'countItemFont'}" class="z-20 text-white absolute bottom-[-3px] right-[-10px] align-middle inline-block text-center w-full text-lg select-none stroke-black" :class="{'!text-green-600': stateStore.trackerState[id] === max, hidden: stateStore.trackerState[id] === 0}">
+    <div :style="{fontFamily: 'countItemFont', color: stateStore.trackerState[id] === max, hidden: stateStore.trackerState[id] === 0 ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)'}" class="z-20 absolute bottom-[-3px] right-[-10px] align-middle inline-block text-center w-full text-lg select-none text-shadow">
       {{stateStore.trackerState[id]}}
     </div>
   </div>

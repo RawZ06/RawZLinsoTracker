@@ -40,7 +40,7 @@ const currentLabel = computed(() => {
         :item="item"
         :active="stateStore.trackerState[id].active"
     ></IconItem>
-    <div :style="{fontFamily: 'labelItemFont'}" class="z-20 text-white absolute top-[30px] w-full text-center text-xs select-none stroke-black">
+    <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)'}" class="z-20 absolute top-[30px] w-full text-center text-xs select-none text-shadow">
       {{currentLabel}}
     </div>
   </div>

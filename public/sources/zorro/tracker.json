@@ -80,7 +80,7 @@
                 }
             },
             "labelItemFont": {
-                "Name": "cmd.ttf",
+                "Name": "cmd.woff",
                 "Size": 13,
                 "Colors": {
                     "Normal": {
@@ -364,7 +364,7 @@
             },
             {
                 "Id": 18,
-                "Kind": "Item",
+                "Kind": "EvolutionItem",
                 "Name": "Empty Bottle",
                 "Positions": {
                     "x": 205,
@@ -379,7 +379,19 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "Label": null,
-                "LabelCenter": false
+                "LabelCenter": false,
+                "NextItems": [
+                    {
+                        "Id": 10,
+                        "Name": "Big Poe",
+                        "SheetInformation": {
+                            "row": 3,
+                            "column": 7,
+                            "SpriteSheet": "Normal"
+                        },
+                        "Label": null
+                    }
+                ]
             },
             {
                 "Id": 19,
@@ -665,7 +677,7 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "valueMin": 0,
-                "valueMax": 100,
+                "valueMax": 50,
                 "valueIncrease": 1,
                 "valueStart": 0
             },

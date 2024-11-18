@@ -47,7 +47,8 @@ export const useTrackerStore = defineStore("tracker", {
             return Object.entries(this.data[2].Fonts).map(([key, value]) => {
                 return {
                     name: key,
-                    filename: value.Name
+                    filename: value.Name,
+                    colors: [convertRgb(value.Colors.Normal), convertRgb(value.Colors.Max)]
                 }
             })
         }
