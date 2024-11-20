@@ -11,6 +11,7 @@ const dimensions = ref(null)
 const background = ref("")
 const backgroundColor = ref("")
 const isOpen = ref(false)
+const isErrorOpen = ref(false)
 
 const trackerStore = useTrackerStore()
 const stateStore = useTrackerStateStore()
@@ -26,12 +27,19 @@ trackerStore.load(props.tracker).then((status) => {
 });
 
 if(props.id) {
-  useSocket(props.id)
+  useSocket(props.id, function () {
+    isErrorOpen.value = true;
+  })
 }
 
 const reset = () => {
   stateStore.clear()
   isOpen.value = false
+}
+
+const goBackOffline = async () => {
+  isErrorOpen.value = false
+  await navigateTo(`/${props.tracker}`)
 }
 
 </script>
@@ -81,6 +89,35 @@ const reset = () => {
                  size="sm"
                  color="red"
                  :trailing="false" @click="reset()"/>
+      </div>
+    </UCard>
+  </UModal>
+
+  <UModal v-model="isErrorOpen">
+    <UCard
+        :ui="{
+          base: 'h-full flex flex-col',
+          rounded: '',
+          divide: 'divide-y divide-gray-100 dark:divide-gray-800',
+          body: {
+            base: 'grow'
+          }
+        }"
+    >
+      <template #header>
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
+            The limit of available tracker online has been reached.
+          </h3>
+        </div>
+      </template>
+
+      <div class="flex justify-end gap-4">
+        <UButton label="Close and back to offline" icon="i-fa6-solid-arrow-rotate-left"
+                 size="sm"
+                 color="primary"
+                 variant="outline"
+                 :trailing="false" @click="goBackOffline()"/>
       </div>
     </UCard>
   </UModal>

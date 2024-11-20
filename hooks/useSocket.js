@@ -1,10 +1,12 @@
 import {socket} from "~/utils/socket.ts";
 import {useTrackerStateStore} from "~/stores/state-store.js";
 
-export function useSocket(id) {
+export function useSocket(id, onErrorHandle) {
     const isConnected = ref(false);
     const stateStore = useTrackerStateStore();
     const isSync = ref(false);
+
+    const closeError = () => isError.value = false;
 
     // Se connecter automatiquement au groupe via l'ID
     if (socket.connected) {
@@ -42,6 +44,10 @@ export function useSocket(id) {
             socket.emit("tracker", { id, tracker: stateStore.trackerState });
         }
     });
+
+    socket.on('error', (arg) => {
+        onErrorHandle(arg)
+    })
 
     // Nettoyer les listeners lors du démontage
     onBeforeUnmount(() => {
