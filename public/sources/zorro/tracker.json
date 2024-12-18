@@ -2,7 +2,7 @@
     {
         "Informations": {
             "Creator": "ZorroDisco",
-            "Name": "Ocarina Of Time - ZorroCompact",
+            "Name": "Ocarina Of Time - Compact",
             "Version": "1.3"
         }
     },
@@ -10,7 +10,7 @@
         "Datas": {
             "Dimensions": {
                 "width": 385,
-                "height": 260
+                "height": 270
             },
             "Background": "background.png",
             "BackgroundColor": {
@@ -25,15 +25,23 @@
                         "width": 35,
                         "height": 35
                     }
+                },
+                "Add": {
+                    "ItemsSheet": "item_linso.png",
+                    "ItemsSheetDimensions": {
+                        "width": 35,
+                        "height": 35
+                    }
                 }
             }
         }
     },
+
     {
         "Fonts": {
             "incrementalItemFont": {
                 "Name": "visitor1.ttf",
-                "Size": 18,
+                "Size": 14,
                 "Colors": {
                     "Normal": {
                         "r": 255,
@@ -49,7 +57,7 @@
             },
             "evolutionItemFont": {
                 "Name": "visitor1.ttf",
-                "Size": 18,
+                "Size": 14,
                 "Colors": {
                     "Normal": {
                         "r": 255,
@@ -80,8 +88,8 @@
                 }
             },
             "labelItemFont": {
-                "Name": "cmd.woff",
-                "Size": 13,
+                "Name": "Outfit-Bold.ttf",
+                "Size": 11,
                 "Colors": {
                     "Normal": {
                         "r": 255,
@@ -96,7 +104,7 @@
                 }
             },
             "hintFont": {
-                "Name": "lm.ttf",
+                "Name": "Outfit-Bold.ttf",
                 "Size": 11,
                 "Colors": {
                     "Normal": {
@@ -364,7 +372,7 @@
             },
             {
                 "Id": 18,
-                "Kind": "EvolutionItem",
+                "Kind": "IncrementalItem",
                 "Name": "Empty Bottle",
                 "Positions": {
                     "x": 205,
@@ -378,25 +386,15 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "Label": null,
-                "LabelCenter": false,
-                "NextItems": [
-                    {
-                        "Id": 10,
-                        "Name": "Big Poe",
-                        "SheetInformation": {
-                            "row": 3,
-                            "column": 7,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    }
+                "Increment": [
+                    "2",
+                    "3"
                 ]
             },
             {
                 "Id": 19,
                 "Kind": "Item",
-                "Name": "Ruto Letter",
+                "Name": "Empty Bottle",
                 "Positions": {
                     "x": 160,
                     "y": 75
@@ -417,13 +415,13 @@
                 "Kind": "EvolutionItem",
                 "Name": "Prescription",
                 "Positions": {
-                    "x": 40,
-                    "y": 175
+                    "x": 45,
+                    "y": 150
                 },
                 "SheetInformation": {
-                    "row": 5,
-                    "column": 5,
-                    "SpriteSheet": "Normal"
+                    "row": 6,
+                    "column": 4,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -431,13 +429,14 @@
                 "Label": null,
                 "LabelCenter": false,
                 "NextItems": [
+                    
                     {
                         "Id": 7,
                         "Name": "Eyeball Frog",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 6,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 5,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -445,9 +444,9 @@
                         "Id": 8,
                         "Name": "World Finest Eye Drops",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 7,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 6,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -455,9 +454,9 @@
                         "Id": 9,
                         "Name": "Claim Check",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 8,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 7,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     }
@@ -466,15 +465,15 @@
             {
                 "Id": 23,
                 "Kind": "EvolutionItem",
-                "Name": "Zelda Letter",
+                "Name": "letter",
                 "Positions": {
                     "x": 5,
-                    "y": 175
+                    "y": 150
                 },
                 "SheetInformation": {
-                    "row": 3,
-                    "column": 12,
-                    "SpriteSheet": "Normal"
+                    "row": 6,
+                    "column": 1,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": true,
                 "Hint": null,
@@ -486,9 +485,9 @@
                         "Id": 2,
                         "Name": "Keaton Mask",
                         "SheetInformation": {
-                            "row": 4,
-                            "column": 1,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 2,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -496,29 +495,9 @@
                         "Id": 3,
                         "Name": "Skull Mask",
                         "SheetInformation": {
-                            "row": 4,
-                            "column": 2,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
-                        "Id": 4,
-                        "Name": "Spooky Mask",
-                        "SheetInformation": {
-                            "row": 4,
+                            "row": 6,
                             "column": 3,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
-                        "Id": 5,
-                        "Name": "Bunny Hood",
-                        "SheetInformation": {
-                            "row": 4,
-                            "column": 4,
-                            "SpriteSheet": "Normal"
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     }
@@ -526,6 +505,40 @@
             },
             {
                 "Id": 24,
+                "Kind": "Item",
+                "Name": "Bean",
+                "Positions": {
+                    "x": 5,
+                    "y": 175
+                },
+                "SheetInformation": {
+                    "row":7,
+                    "column": 1,
+                    "SpriteSheet": "Add"
+                },
+                "isActive": false,
+                "Hint": null,
+                "OpacityDisable": 0.5
+            },
+            {
+                "Id": 27,
+                "Kind": "Item",
+                "Name": "Gerudo Card",
+                "Positions": {
+                    "x": 45,
+                    "y": 175
+                },
+                "SheetInformation": {
+                    "row": 2,
+                    "column": 3,
+                    "SpriteSheet": "Add"
+                },
+                "isActive": false,
+                "Hint": null,
+                "OpacityDisable": 0.5
+            },
+            {
+                "Id": 25,
                 "Kind": "Item",
                 "Name": "Kokiri Sword",
                 "Positions": {
@@ -665,19 +678,19 @@
                 "Kind": "CountItem",
                 "Name": "Skulls",
                 "Positions": {
-                    "x": 85,
+                    "x": 90,
                     "y": 165
                 },
                 "SheetInformation": {
-                    "row": 8,
-                    "column": 2,
-                    "SpriteSheet": "Normal"
+                    "row": 2,
+                    "column": 4,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": true,
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "valueMin": 0,
-                "valueMax": 50,
+                "valueMax": 100,
                 "valueIncrease": 1,
                 "valueStart": 0
             },
@@ -770,34 +783,22 @@
             },
             {
                 "Id": 40,
-                "Kind": "EvolutionItem",
+                "Kind": "Item",
                 "Name": "Magic I",
                 "Positions": {
                     "x": 85,
                     "y": 110
                 },
                 "SheetInformation": {
-                    "row": 8,
-                    "column": 3,
-                    "SpriteSheet": "Normal"
+                    "row": 3,
+                    "column": 4,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "Label": null,
-                "LabelCenter": false,
-                "NextItems": [
-                    {
-                        "Id": 0,
-                        "Name": "Magic II",
-                        "SheetInformation": {
-                            "row": 8,
-                            "column": 4,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    }
-                ]
+                "LabelCenter": false
             },
             {
                 "Id": 42,
@@ -1095,9 +1096,9 @@
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 2,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 1,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1117,9 +1118,9 @@
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 3,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 2,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1139,9 +1140,9 @@
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 4,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 3,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1161,9 +1162,9 @@
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 5,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 6,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1179,13 +1180,13 @@
                 "Kind": "CheckItem",
                 "Name": "Song of Time",
                 "Positions": {
-                    "x": 310,
+                    "x": 314,
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 6,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 4,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1205,9 +1206,9 @@
                     "y": 140
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 7,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 5,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1227,9 +1228,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 8,
-                    "SpriteSheet": "Normal"
+                    "row": 4,
+                    "column": 1,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1249,9 +1250,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 9,
-                    "SpriteSheet": "Normal"
+                    "row": 4,
+                    "column": 2,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1271,9 +1272,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 10,
-                    "SpriteSheet": "Normal"
+                    "row": 4,
+                    "column": 3,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1293,9 +1294,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 11,
-                    "SpriteSheet": "Normal"
+                    "row": 4,
+                    "column": 4,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1315,9 +1316,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 9,
-                    "column": 12,
-                    "SpriteSheet": "Normal"
+                    "row": 4,
+                    "column": 5,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1337,9 +1338,9 @@
                     "y": 175
                 },
                 "SheetInformation": {
-                    "row": 10,
-                    "column": 1,
-                    "SpriteSheet": "Normal"
+                    "row":4,
+                    "column": 6,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -1349,8 +1350,11 @@
                     "column": 4,
                     "SpriteSheet": "Normal"
                 }
-                
-            }
-        ]
-    }
+            }  
+         ]
+    } 
 ]
+
+    
+
+
