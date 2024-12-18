@@ -7,6 +7,8 @@ const form = reactive({
   name: ""
 })
 
+const scroll = route.query.scroll
+
 async function onSubmit(event) {
   // Do something with event.data
   event.preventDefault()
@@ -23,7 +25,7 @@ async function onSubmit(event) {
              color="primary"
              :trailing="false" @click="isOpen = true"/>
   </div>
-  <Tracker :tracker="tracker" />
+  <Tracker :tracker="tracker" :scroll="scroll" />
   <UModal v-model="isOpen">
     <UCard
         :ui="{

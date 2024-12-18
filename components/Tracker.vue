@@ -4,7 +4,7 @@ import {useSocket} from "~/hooks/useSocket.js";
 import {useTrackerStateStore} from "~/stores/state-store.js";
 import ItemList from "~/components/items/ItemList.vue";
 
-const props = defineProps(['tracker', 'id'])
+const props = defineProps(['tracker', 'id', 'scroll'])
 
 const loaded = ref(false)
 const dimensions = ref(null)
@@ -51,7 +51,7 @@ const goBackOffline = async () => {
              color="primary"
              :trailing="false" @click="isOpen = true"/>
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
-      <ItemList  />
+      <ItemList :scroll="scroll" />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
     </div>
   </div>
