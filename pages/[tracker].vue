@@ -16,6 +16,10 @@ async function onSubmit(event) {
   form.name = "";
   await navigateTo(`/tracker/${tracker}/${value}`)
 }
+
+useHead({
+  title: `Tracker ${tracker}`,
+})
 </script>
 
 <template>

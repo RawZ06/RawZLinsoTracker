@@ -23,6 +23,13 @@ trackers.forEach((tracker) => {
 })
 
 useDefaultFont();
+
+useHead({
+  title: 'RawZLinsoTracker',
+  meta: [
+    { name: 'description', content: 'An Online version of LinsoTracker' }
+  ]
+})
 </script>
 
 <template>

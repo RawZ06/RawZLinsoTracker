@@ -4,6 +4,11 @@ const route = useRoute()
 const tracker = route.params.tracker
 const id = route.params.id
 const scroll = route.query.scroll
+
+useHead({
+  title: `Tracker ${tracker} - ${id}`,
+})
+
 </script>
 
 <template>
