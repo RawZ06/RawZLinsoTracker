@@ -6,9 +6,9 @@ export function useHiddenScrollBarOnSmallWindow(isSmallWindow) {
             const htmlElement = document.documentElement;
 
             if (isSmallWindow) {
-                htmlElement.style.setProperty('scroll-width', 'none');
+                htmlElement.style.setProperty('scrollbar-width', 'none');
             } else {
-                htmlElement.style.removeProperty('scroll-width');
+                htmlElement.style.removeProperty('scrollbar-width');
             }
         });
     })
