@@ -12,7 +12,7 @@ useHead({
 </script>
 
 <template>
-  <Tracker :tracker="tracker" :id="id" :scroll="scroll"/>
+  <Tracker :tracker="tracker" :id="id" :isSmallWindow="isSmallWindow"/>
 </template>
 
 <style scoped>
