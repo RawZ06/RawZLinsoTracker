@@ -1,5 +1,6 @@
 <script setup>
 import Tracker from "~/components/Tracker.vue";
+import {useListenKey} from "~/hooks/useListenKey.js";
 const route = useRoute()
 const tracker = route.params.tracker
 const isOpen = ref(false)
@@ -7,7 +8,7 @@ const form = reactive({
   name: ""
 })
 
-const scroll = route.query.scroll
+const isSmallWindow = route.query.isSmallWindow
 
 async function onSubmit(event) {
   // Do something with event.data
@@ -20,16 +21,19 @@ async function onSubmit(event) {
 useHead({
   title: `Tracker ${tracker}`,
 })
+
+useListenKey(true, true, 'l', () => isOpen.value = true)
+
 </script>
 
 <template>
-  <div class="mb-2 ml-2">
+  <div class="mb-2 ml-2" v-if="!isSmallWindow">
     <UButton label="Go Live" icon="i-heroicons-globe-alt"
              size="sm"
              color="primary"
              :trailing="false" @click="isOpen = true"/>
   </div>
-  <Tracker :tracker="tracker" :scroll="scroll" />
+  <Tracker :tracker="tracker" :isSmallWindow="isSmallWindow" />
   <UModal v-model="isOpen">
     <UCard
         :ui="{

@@ -1,6 +1,8 @@
+import {useListenKey} from "~/hooks/useListenKey.js";
+
 export default function useOpenSmallWindow(w, h) {
     const openInSmallWindow = () => {
-        const url = window.location.href + '?scroll=true';
+        const url = window.location.href + '?isSmallWindow=true';
         const width = w ?? 600;
         const height = h ?? 400;
         const left = (screen.width / 2) - (width / 2);
@@ -8,21 +10,9 @@ export default function useOpenSmallWindow(w, h) {
         window.open(
             url,
             "_blank",
-            `width=${width},height=${height},top=${top},left=${left},toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes`
+            `width=${width},height=${height},top=${top},left=${left},toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes`
         );
     };
-    const handleKeydown = (event) => {
-        if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'l') {
-            event.preventDefault();
-            openInSmallWindow();
-        }
-    };
 
-    onMounted(() => {
-        window.addEventListener('keydown', handleKeydown);
-    });
-
-    onBeforeUnmount(() => {
-        window.removeEventListener('keydown', handleKeydown);
-    });
+    useListenKey(false, true, 'l', openInSmallWindow);
 }

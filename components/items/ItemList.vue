@@ -3,7 +3,7 @@ import Item from "./Item.vue";
 import {useCustomFont} from "~/hooks/useCustomFont.js";
 import useOpenSmallWindow from "~/hooks/useOpenSmallWindow.js";
 
-const props = defineProps(["scroll"])
+const props = defineProps(["isSmallWindow"])
 
 const trackerStore = useTrackerStore();
 const fonts = trackerStore.fonts();
@@ -19,7 +19,7 @@ for(let font of fonts) {
 useOpenSmallWindow(dim.width, dim.height)
 
 onMounted(() => {
-  if(props.scroll) {
+  if(props.isSmallWindow) {
     window.scrollTo(0, dim.height)
   }
 })

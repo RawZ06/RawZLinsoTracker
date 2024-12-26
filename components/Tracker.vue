@@ -3,8 +3,10 @@ import {useTrackerStore} from "~/stores/tracker-store.js";
 import {useSocket} from "~/hooks/useSocket.js";
 import {useTrackerStateStore} from "~/stores/state-store.js";
 import ItemList from "~/components/items/ItemList.vue";
+import {useListenKey} from "~/hooks/useListenKey.js";
+import {useHiddenScrollBarOnSmallWindow} from "~/hooks/useHiddenScrollBarOnSmallWindow.js";
 
-const props = defineProps(['tracker', 'id', 'scroll'])
+const props = defineProps(['tracker', 'id', 'isSmallWindow'])
 
 const loaded = ref(false)
 const dimensions = ref(null)
@@ -42,16 +44,19 @@ const goBackOffline = async () => {
   await navigateTo(`/${props.tracker}`)
 }
 
+useListenKey(true, true, 'r', () => isOpen.value = true)
+useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
+
 </script>
 
 <template>
   <div v-if="loaded" class="">
-    <UButton label="Reset" icon="i-heroicons-trash-solid"
+    <UButton v-if="!isSmallWindow" label="Reset" icon="i-heroicons-trash-solid"
              size="sm"
              color="primary"
              :trailing="false" @click="isOpen = true"/>
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
-      <ItemList :scroll="scroll" />
+      <ItemList :isSmallWindow="isSmallWindow" />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
     </div>
   </div>
