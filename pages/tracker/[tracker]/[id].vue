@@ -3,7 +3,7 @@ import Tracker from "~/components/Tracker.vue";
 const route = useRoute()
 const tracker = route.params.tracker
 const id = route.params.id
-const scroll = route.query.scroll
+const isSmallWindow = route.query.isSmallWindow
 
 useHead({
   title: `Tracker ${tracker} - ${id}`,
