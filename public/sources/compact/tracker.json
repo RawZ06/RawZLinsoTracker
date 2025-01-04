@@ -1114,7 +1114,7 @@
                 "Kind": "CheckItem",
                 "Name": "Epona Song",
                 "Positions": {
-                    "x": 238,
+                    "x": 202,
                     "y": 140
                 },
                 "SheetInformation": {
@@ -1136,7 +1136,7 @@
                 "Kind": "CheckItem",
                 "Name": "Saria Song",
                 "Positions": {
-                    "x": 202,
+                    "x": 238,
                     "y": 140
                 },
                 "SheetInformation": {
