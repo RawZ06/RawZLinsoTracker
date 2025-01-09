@@ -11,17 +11,17 @@ export function useSocket(id, onErrorHandle) {
     // Se connecter automatiquement au groupe via l'ID
     if (socket.connected) {
         isConnected.value = true;
-        socket.emit('joinGroup', id); // Rejoindre le groupe correspondant à l'ID
+        socket.emit('joinGroup', id.toLocaleLowerCase()); // Rejoindre le groupe correspondant à l'ID
     }
 
     function onConnect() {
         isConnected.value = true;
-        socket.emit('joinGroup', id); // Rejoindre le groupe lors de la connexion
+        socket.emit('joinGroup', id.toLocaleLowerCase()); // Rejoindre le groupe lors de la connexion
 
         // Synchroniser le stateStore avec le serveur
         stateStore.subscribe((tracker) => {
             if(isSync.value) {
-                socket.emit("tracker", { id, tracker }); // Inclure l'ID et l'état
+                socket.emit("tracker", { id: id.toLocaleLowerCase(), tracker }); // Inclure l'ID et l'état
             }
         });
     }
@@ -38,10 +38,10 @@ export function useSocket(id, onErrorHandle) {
     // Réception des mises à jour du serveur
     socket.on("tracker", (arg) => {
         isSync.value = true;
-        if (arg.id === id && arg.tracker) { // Vérifier que l'ID correspond à celui du groupe actuel
+        if (arg.id.toLocaleLowerCase() === id.toLocaleLowerCase() && arg.tracker) { // Vérifier que l'ID correspond à celui du groupe actuel
             stateStore.trackerState = arg.tracker; // Mettre à jour uniquement l'état du groupe
-        } else if(arg.id === id) {
-            socket.emit("tracker", { id, tracker: stateStore.trackerState });
+        } else if(arg.id.toLocaleLowerCase() === id.toLocaleLowerCase()) {
+            socket.emit("tracker", { id: id.toLocaleLowerCase(), tracker: stateStore.trackerState });
         }
     });
 

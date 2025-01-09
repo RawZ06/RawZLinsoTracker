@@ -15,7 +15,7 @@ async function onSubmit(event) {
   event.preventDefault()
   const value = event.data.name;
   form.name = "";
-  await navigateTo(`/tracker/${tracker}/${value}`)
+  await navigateTo(`${useRequestURL().origin}/tracker/${tracker}/${value}`, {external: true})
 }
 
 useHead({

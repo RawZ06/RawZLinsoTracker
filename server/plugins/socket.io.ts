@@ -15,17 +15,17 @@ export default defineNitroPlugin((nitroApp) => {
         console.debug("New connection :", socket.id);
 
         socket.on('joinGroup', (groupId: string) => {
-            console.debug(`Client ${socket.id} a join group ${groupId}`);
-            socket.join(groupId);
+            console.debug(`Client ${socket.id} a join group ${groupId.toLocaleLowerCase()}`);
+            socket.join(groupId.toLocaleLowerCase());
 
-            if (globalState.get(groupId)) {
-                socket.emit('tracker', { id: groupId, tracker: globalState.get(groupId) });
+            if (globalState.get(groupId.toLocaleLowerCase())) {
+                socket.emit('tracker', { id: groupId.toLocaleLowerCase(), tracker: globalState.get(groupId.toLocaleLowerCase()) });
             } else {
                 try {
-                    globalState.set(groupId, null);
-                    socket.emit('tracker', { id: groupId, tracker: globalState.get(groupId) });
+                    globalState.set(groupId.toLocaleLowerCase(), null);
+                    socket.emit('tracker', { id: groupId.toLocaleLowerCase(), tracker: globalState.get(groupId.toLocaleLowerCase()) });
                     setTimeout(() => {
-                        globalState.delete(groupId)
+                        globalState.delete(groupId.toLocaleLowerCase())
                     }, HOUR_AVAILABLE * 60 * 60 * 1000);
                 } catch(e) {
                     socket.emit('error', e)
