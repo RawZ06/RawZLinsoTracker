@@ -6,17 +6,32 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, id, labels} = useTrackerItem(props.item)
+const {position, defaultActive, id, labels, defaultLabel, hasDefaultLabel} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
 if(!stateStore.trackerState[id.value]) {
   stateStore.trackerState[id.value] = {
-    state: 0,
+    state: defaultLabel.value ?? 0,
     active: defaultActive.value
   }
 }
 
-const updateState = (value) => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], state: value});
+const updateStateInc = () => {
+  if(hasDefaultLabel.value) {
+    if(stateStore.trackerState[id.value].state+1 < labels.value.length) {
+      stateStore.update(id.value, {...stateStore.trackerState[id.value], state: stateStore.trackerState[id.value].state+1});
+    }
+  } else {
+    stateStore.update(id.value, {...stateStore.trackerState[id.value], state: (stateStore.trackerState[id.value].state+1)%labels.value.length});
+  }
+}
+const updateStateDec = () => {
+  if(hasDefaultLabel.value) {
+    if(stateStore.trackerState[id.value].state-1 >= 0) {
+      stateStore.update(id.value, {...stateStore.trackerState[id.value], state: stateStore.trackerState[id.value].state-1});
+    }
+  } else {
+    stateStore.update(id.value, {...stateStore.trackerState[id.value], state: (stateStore.trackerState[id.value].state-1 < 0 ? labels.value.length-1 : stateStore.trackerState[id.value].state-1)});
+  }
 }
 const updateActive = () => {
   stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
@@ -24,6 +39,18 @@ const updateActive = () => {
 const currentLabel = computed(() => {
   return labels.value[stateStore.trackerState[id.value].state]
 })
+const handleWheel = (event) => {
+  if (event.deltaY < 0) {
+    updateStateDec()
+  } else {
+    updateStateInc()
+  }
+}
+const handleRightClick = () => {
+  if(!hasDefaultLabel.value) {
+    updateStateInc()
+  }
+}
 </script>
 
 <template>
@@ -34,7 +61,8 @@ const currentLabel = computed(() => {
         top: position.y + 'px',
       }"
       @click="updateActive()"
-      @contextmenu.prevent="updateState((stateStore.trackerState[id].state+1)%labels.length)"
+      @contextmenu.prevent="handleRightClick()"
+      @wheel.prevent="handleWheel($event)"
   >
     <IconItem
         :item="item"

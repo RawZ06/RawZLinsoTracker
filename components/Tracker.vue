@@ -14,9 +14,11 @@ const background = ref("")
 const backgroundColor = ref("")
 const isOpen = ref(false)
 const isErrorOpen = ref(false)
+const errorArgs = ref(null)
 
 const trackerStore = useTrackerStore()
 const stateStore = useTrackerStateStore()
+stateStore.setName(props.tracker);
 trackerStore.load(props.tracker).then((status) => {
   loaded.value = status;
   const dim = trackerStore.dimensions();
@@ -29,7 +31,8 @@ trackerStore.load(props.tracker).then((status) => {
 });
 
 if(props.id) {
-  useSocket(props.id, function () {
+  useSocket(props.id, function (name) {
+    errorArgs.value = name;
     isErrorOpen.value = true;
   })
 }
@@ -40,6 +43,7 @@ const reset = () => {
 }
 
 const goBackOffline = async () => {
+  errorArgs.value = null
   isErrorOpen.value = false
   await navigateTo(`/${props.tracker}`)
 }
@@ -58,6 +62,9 @@ useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
       <ItemList :isSmallWindow="isSmallWindow" />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
+<!--      <div class="absolute inset-2 z-0 flex items-center justify-center">-->
+<!--        <span class="text-6xl font-bold text-gray-200 opacity-10 tracking-widest -rotate-45">Online</span>-->
+<!--      </div>-->
     </div>
   </div>
   <div v-else>
@@ -112,7 +119,12 @@ useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
       <template #header>
         <div class="flex items-center justify-between">
           <h3 class="text-base font-semibold leading-6 text-gray-900 dark:text-white">
-            The limit of available tracker online has been reached.
+            <span v-if="errorArgs === 'error'">
+              The limit of available tracker online has been reached.
+            </span>
+            <span v-if="errorArgs === 'name'">
+              The tracker with id {{props.id}} is not tracker {{props.tracker}}. Please connect with correct tracker
+            </span>
           </h3>
         </div>
       </template>

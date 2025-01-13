@@ -58,6 +58,14 @@ export const useTrackerItem= (item) => {
         return item.LabelList
     })
 
+    const defaultLabel = computed(() => {
+        return item.LabelDefault ?? 0
+    })
+
+    const hasDefaultLabel = computed(() => {
+        return item.LabelDefault !== undefined
+    })
+
     const checkItem = computed(() => {
         return item.CheckImageSheetInformation
     })
@@ -70,5 +78,5 @@ export const useTrackerItem= (item) => {
         return item.maxValue ?? 1;
     })
 
-    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, checkItem, glow, max, id}
+    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, defaultLabel, hasDefaultLabel, checkItem, glow, max, id}
 }

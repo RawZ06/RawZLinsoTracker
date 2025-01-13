@@ -2,8 +2,8 @@
     {
         "Informations": {
             "Creator": "ZorroDisco",
-            "Name": "Ocarina Of Time - Compact",
-            "Version": "1.3"
+            "Name": "Ocarina Of Time - Compact Wheel",
+            "Version": "1.4"
         }
     },
     {
@@ -710,13 +710,14 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
 					"DEKU",
 					"DC",
 					"JABU",
-					"FRST",
+                    "FREE",
+                    "????",
+                    "FRST",
 					"FIRE",
 					"WATR",
                     "SHDW",
@@ -739,17 +740,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -768,17 +770,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-					"????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -929,17 +932,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -958,17 +962,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -987,17 +992,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -1016,17 +1022,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -1045,17 +1052,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {
@@ -1074,17 +1082,18 @@
                 "isActive": false,
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
+                "LabelDefault": 4,
                 "LabelList": [
-                    "????", 
-					"FREE", 
-					"DEKU",
-					"DC",
-					"JABU",
-					"FRST",
-					"FIRE",
-					"WATR",
+                    "JABU",
+                    "DC",
+                    "DEKU",
+                    "FREE",
+                    "????",
+                    "FRST",
+                    "FIRE",
+                    "WATR",
                     "SHDW",
-					"SPRT"
+                    "SPRT"
                 ]
             },
             {

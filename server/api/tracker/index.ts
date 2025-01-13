@@ -6,7 +6,9 @@ export default defineEventHandler(async () => {
         ...acc,
         [key]: {
             date: value.toISOString(),
-            delay: diff(value).map(num => String(num).padStart(2, '0')).join(':')
+            delay: diff(value).map(num => String(num).padStart(2, '0')).join(':'),
+            tracker: globalState.getName(key),
+            url: '/tracker/' + globalState.getName(key) + '/' + key,
         }
     }), {})
 });

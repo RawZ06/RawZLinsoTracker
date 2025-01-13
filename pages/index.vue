@@ -1,6 +1,6 @@
 <script setup>
 import {useDefaultFont} from "~/hooks/useCustomFont.js";
-const trackers = ["oot64", "oot64keysanity", "majorasmask64", "compact"]
+const trackers = ["oot64", "oot64keysanity", "majorasmask64", "compact", "compact-wheel"]
 const trackersInfo = ref({})
 const currentHover = ref('')
 
@@ -30,6 +30,10 @@ useHead({
     { name: 'description', content: 'An Online version of LinsoTracker' }
   ]
 })
+
+const handleOpenTracker = async (tracker) => {
+  await navigateTo(`${useRequestURL().origin}/${tracker}`, {external: true})
+}
 </script>
 
 <template>
@@ -41,7 +45,7 @@ useHead({
   </div>
   <div class="relative h-[510px] top-[60px] z-10 flex justify-between">
     <div class="mt-10 ml-10 flex w-1/2">
-      <NuxtLink :to="`/${tracker}`" v-for="tracker of trackers" class="relative w-[122px] h-[122px] grid place-items-center group cursor-pointer" @mouseenter="currentHover = tracker" @mouseleave="currentHover = ''">
+      <NuxtLink @click="handleOpenTracker(tracker)" v-for="tracker of trackers" class="relative w-[122px] h-[122px] grid place-items-center group cursor-pointer" @mouseenter="currentHover = tracker" @mouseleave="currentHover = ''">
         <img :src="`/sources/${tracker}/icon.png`" alt="Background" class="z-30 row-start-1 col-start-1 translate-y-[-5px]">
         <img :src="`/default/glow-official.png`" alt="Glow" class="z-20 row-start-1 col-start-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <img :src="`/default/menu-official.png`" alt="Menu" class="z-20 row-start-1 col-start-1">

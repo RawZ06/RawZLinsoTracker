@@ -6,22 +6,23 @@ export function useSocket(id, onErrorHandle) {
     const stateStore = useTrackerStateStore();
     const isSync = ref(false);
 
-    const closeError = () => isError.value = false;
-
     // Se connecter automatiquement au groupe via l'ID
     if (socket.connected) {
         isConnected.value = true;
-        socket.emit('joinGroup', id.toLocaleLowerCase()); // Rejoindre le groupe correspondant à l'ID
+        const name = stateStore.name;
+        socket.emit('joinGroup', {id: id.toLocaleLowerCase(), name }); // Rejoindre le groupe correspondant à l'ID
     }
 
     function onConnect() {
         isConnected.value = true;
-        socket.emit('joinGroup', id.toLocaleLowerCase()); // Rejoindre le groupe lors de la connexion
+        const name = stateStore.name;
+        socket.emit('joinGroup', {id: id.toLocaleLowerCase(), name }); // Rejoindre le groupe lors de la connexion
 
         // Synchroniser le stateStore avec le serveur
         stateStore.subscribe((tracker) => {
+            const name = stateStore.name;
             if(isSync.value) {
-                socket.emit("tracker", { id: id.toLocaleLowerCase(), tracker }); // Inclure l'ID et l'état
+                socket.emit("tracker", { id: id.toLocaleLowerCase(), name, tracker }); // Inclure l'ID et l'état
             }
         });
     }
@@ -40,13 +41,19 @@ export function useSocket(id, onErrorHandle) {
         isSync.value = true;
         if (arg.id.toLocaleLowerCase() === id.toLocaleLowerCase() && arg.tracker) { // Vérifier que l'ID correspond à celui du groupe actuel
             stateStore.trackerState = arg.tracker; // Mettre à jour uniquement l'état du groupe
+            stateStore.trackerName = arg.name;
         } else if(arg.id.toLocaleLowerCase() === id.toLocaleLowerCase()) {
-            socket.emit("tracker", { id: id.toLocaleLowerCase(), tracker: stateStore.trackerState });
+            const name = stateStore.name;
+            socket.emit("tracker", { id: id.toLocaleLowerCase(), name, tracker: stateStore.trackerState });
         }
     });
 
     socket.on('error', (arg) => {
-        onErrorHandle(arg)
+        onErrorHandle('error')
+    })
+
+    socket.on('name-error', (arg) => {
+        onErrorHandle('name')
     })
 
     // Nettoyer les listeners lors du démontage

@@ -7,6 +7,7 @@ export const useTrackerStateStore = defineStore("default-state", {
         },
         subscription: null,
         defaultValue: null,
+        name: null,
     }),
     actions: {
         update(item, current, isDefault = false) {
@@ -19,6 +20,10 @@ export const useTrackerStateStore = defineStore("default-state", {
             if(this.subscription) {
                 this.subscription(this.trackerState)
             }
+        },
+
+        setName(name) {
+            this.name = name
         },
 
         clear() {

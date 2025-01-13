@@ -10,22 +10,12 @@ export default defineNuxtConfig({
       "@nuxt/fonts",
       "@nuxt/eslint",
       "@pinia/nuxt",
-      "@kgierke/nuxt-basic-auth",
       "@vite-pwa/nuxt"
     ],
     nitro: {
         experimental: {
             websocket: true
         },
-    },
-    basicAuth: {
-        enabled: true,
-        // Optional: Delimiter for users string
-        // usersDelimiter: ",",
-        // Optional: Whitelist routes
-        allowedRoutes: [
-            '^((?!/api/tracker).)*$' // Exclure toutes les routes sauf /api/tracker et ses sous-routes
-        ],
     },
     pwa: {
         registerType: 'autoUpdate',
