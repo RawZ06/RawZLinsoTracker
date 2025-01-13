@@ -8,6 +8,9 @@ export const useTrackerStore = defineStore("tracker", {
     }),
     actions: {
         async load(trackerName) {
+            if(trackerName.endsWith('disabled')) {
+                return new Promise((_, reject) => reject(false))
+            }
             return fetch('/sources/' + trackerName + '/tracker.json').then(async (res) => {
                 try {
                     this.data = await res.json();
