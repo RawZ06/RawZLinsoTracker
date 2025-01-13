@@ -719,8 +719,8 @@
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -740,16 +740,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -769,16 +769,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-					"????", 
-					"FREE", 
+					"????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -930,8 +930,8 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
@@ -959,16 +959,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -988,16 +988,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -1005,7 +1005,7 @@
                 "Kind": "LabelItem",
                 "Name": "Shadow Medallion",
                 "Positions": {
-                    "x": 304,
+                    "x": 261,
                     "y": 215
                 },
                 "SheetInformation": {
@@ -1017,16 +1017,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -1034,7 +1034,7 @@
                 "Kind": "LabelItem",
                 "Name": "Spirit Medallion",
                 "Positions": {
-                    "x": 261,
+                    "x": 304,
                     "y": 215
                 },
                 "SheetInformation": {
@@ -1046,16 +1046,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -1075,16 +1075,16 @@
                 "Hint": "MQ",
                 "OpacityDisable": 0.5,
                 "LabelList": [
-                    "????", 
-					"FREE", 
+                    "????",
+					"FREE",
 					"DEKU",
 					"DC",
 					"JABU",
 					"FRST",
 					"FIRE",
 					"WATR",
-                    "SPRT",
-                    "SHDW"
+                    "SHDW",
+					"SPRT"
                 ]
             },
             {
@@ -1290,7 +1290,7 @@
                 "Kind": "CheckItem",
                 "Name": "Requiem of Spirit",
                 "Positions": {
-                    "x": 274,
+                    "x": 310,
                     "y": 175
                 },
                 "SheetInformation": {
@@ -1312,7 +1312,7 @@
                 "Kind": "CheckItem",
                 "Name": "Nocturne of Shadow",
                 "Positions": {
-                    "x": 310,
+                    "x": 274,
                     "y": 175
                 },
                 "SheetInformation": {
