@@ -7,8 +7,10 @@ export function useHiddenScrollBarOnSmallWindow(isSmallWindow) {
 
             if (isSmallWindow) {
                 htmlElement.style.setProperty('scrollbar-width', 'none');
+                htmlElement.style.setProperty('overflow', 'hidden');
             } else {
                 htmlElement.style.removeProperty('scrollbar-width');
+                htmlElement.style.removeProperty('overflow');
             }
         });
     })

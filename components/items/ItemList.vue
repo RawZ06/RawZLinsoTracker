@@ -18,12 +18,6 @@ for(let font of fonts) {
 
 useOpenSmallWindow(dim.width, dim.height)
 
-onMounted(() => {
-  if(props.isSmallWindow) {
-    window.scrollTo(0, dim.height)
-  }
-})
-
 </script>
 
 <template>
