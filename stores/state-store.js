@@ -5,16 +5,20 @@ export const useTrackerStateStore = defineStore("default-state", {
         trackerState: {
 
         },
+        trackerInfo: {
+
+        },
         subscription: null,
-        defaultValue: null,
         name: null,
     }),
     actions: {
-        update(item, current, isDefault = false) {
-            if(!isDefault && this.defaultValue === null) {
-                this.defaultValue = JSON.parse(JSON.stringify(this.trackerState));
+        init(item, current) {
+            if(!this.trackerState[item]) {
+                this.update(item, current);
             }
+        },
 
+        update(item, current) {
             this.trackerState[item] = current
 
             if(this.subscription) {
@@ -22,18 +26,12 @@ export const useTrackerStateStore = defineStore("default-state", {
             }
         },
 
-        setName(name) {
-            this.name = name
+        get(item) {
+            return this.trackerState[item];
         },
 
-        clear() {
-            this.trackerState = JSON.parse(JSON.stringify(this.defaultValue));
-
-            if(this.subscription) {
-                this.subscription(this.trackerState)
-            }
-
-            // reloadNuxtApp()
+        setName(name) {
+            this.name = name
         },
 
         subscribe(callback) {
@@ -42,6 +40,16 @@ export const useTrackerStateStore = defineStore("default-state", {
 
         unsubscribe() {
             this.subscription = null
+        },
+
+        getState() {
+            return Object.keys(this.trackerInfo).reduce((acc, key) => {
+                acc[key] = {
+                    ...this.trackerInfo[key],
+                    state: this.trackerState[key],
+                };
+                return acc;
+            }, {});
         }
     }
 });

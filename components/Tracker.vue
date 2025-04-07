@@ -38,8 +38,14 @@ if(props.id) {
 }
 
 const reset = () => {
-  stateStore.clear()
   isOpen.value = false
+  if(props.id) {
+    fetch('/api/tracker/' + props.id.toLocaleLowerCase(), {method: 'DELETE'}).then(() => {
+      reloadNuxtApp()
+    })
+  } else {
+    reloadNuxtApp()
+  }
 }
 
 const goBackOffline = async () => {
@@ -48,29 +54,25 @@ const goBackOffline = async () => {
   await navigateTo(`/${props.tracker}`)
 }
 
-//useListenKey(true, true, 'r', () => isOpen.value = true)
+useListenKey(true, true, 'r', () => reset())
 useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
 
 </script>
 
 <template>
   <div v-if="loaded" class="">
-    <!--<UButton v-if="!isSmallWindow" label="Reset" icon="i-heroicons-trash-solid"
-             size="sm"
-             color="primary"
-             :trailing="false" @click="isOpen = true"/>-->
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
       <ItemList :isSmallWindow="isSmallWindow" />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
-<!--      <div class="absolute inset-2 z-0 flex items-center justify-center">-->
-<!--        <span class="text-6xl font-bold text-gray-200 opacity-10 tracking-widest -rotate-45">Online</span>-->
-<!--      </div>-->
     </div>
   </div>
   <div v-else>
     Loading...
   </div>
-<!--  <pre>{{JSON.stringify(stateStore.trackerState, null, 4)}}</pre>-->
+<!--  <pre>{{JSON.stringify({-->
+<!--    // global: stateStore.getState(),-->
+<!--    state: stateStore.trackerState-->
+<!--  }, null, 4)}}</pre>-->
   <UModal v-model="isOpen">
     <UCard
         :ui="{

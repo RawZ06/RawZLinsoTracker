@@ -9,10 +9,19 @@ import CheckItem from "./type/CheckItem.vue";
 import GoModeItem from "./type/GoModeItem.vue";
 import {useTrackerItem} from "~/hooks/useTrackerItem.js";
 import AlternateCountItem from "~/components/items/type/AlternateCountItem.vue";
+import AlternateEvolutionItem from "~/components/items/type/AlternateEvolutionItem.vue";
+import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
+const stateStore = useTrackerStateStore();
 
-const {itemType} = useTrackerItem(props.item)
+const {itemType, id, name} = useTrackerItem(props.item)
+
+stateStore.trackerInfo[id.value] = {
+  id: id.value,
+  name: name.value,
+  type: itemType.value,
+}
 </script>
 
 <template>
@@ -31,6 +40,11 @@ const {itemType} = useTrackerItem(props.item)
       <EvolutionItem
           :item="item"
       ></EvolutionItem>
+    </template>
+    <template v-else-if="itemType === 'AlternateEvolutionItem'">
+      <AlternateEvolutionItem
+          :item="item"
+      ></AlternateEvolutionItem>
     </template>
     <template v-else-if="itemType === 'CountItem'">
       <CountItem

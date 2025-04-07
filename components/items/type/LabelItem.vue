@@ -6,38 +6,36 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, id, labels, defaultLabel, hasDefaultLabel} = useTrackerItem(props.item)
+const {position, defaultActive, id, labels, defaultLabel, sizeLabel, name, hasDefaultLabel} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
-if(!stateStore.trackerState[id.value]) {
-  stateStore.trackerState[id.value] = {
-    state: defaultLabel.value ?? 0,
-    active: defaultActive.value
-  }
-}
+stateStore.init(id.value, {
+  state: defaultLabel.value ?? 0,
+  active: defaultActive.value
+})
 
 const updateStateInc = () => {
   if(hasDefaultLabel.value) {
-    if(stateStore.trackerState[id.value].state+1 < labels.value.length) {
-      stateStore.update(id.value, {...stateStore.trackerState[id.value], state: stateStore.trackerState[id.value].state+1});
+    if(stateStore.get(id.value)?.state+1 < labels.value.length) {
+      stateStore.update(id.value, {...stateStore.get(id.value), state: stateStore.get(id.value).state+1});
     }
   } else {
-    stateStore.update(id.value, {...stateStore.trackerState[id.value], state: (stateStore.trackerState[id.value].state+1)%labels.value.length});
+    stateStore.update(id.value, {...stateStore.get(id.value), state: (stateStore.get(id.value).state+1)%labels.value.length});
   }
 }
 const updateStateDec = () => {
   if(hasDefaultLabel.value) {
-    if(stateStore.trackerState[id.value].state-1 >= 0) {
-      stateStore.update(id.value, {...stateStore.trackerState[id.value], state: stateStore.trackerState[id.value].state-1});
+    if(stateStore.get(id.value).state-1 >= 0) {
+      stateStore.update(id.value, {...stateStore.get(id.value), state: stateStore.get(id.value).state-1});
     }
   } else {
-    stateStore.update(id.value, {...stateStore.trackerState[id.value], state: (stateStore.trackerState[id.value].state-1 < 0 ? labels.value.length-1 : stateStore.trackerState[id.value].state-1)});
+    stateStore.update(id.value, {...stateStore.get(id.value), state: (stateStore.get(id.value).state-1 < 0 ? labels.value.length-1 : stateStore.get(id.value).state-1)});
   }
 }
 const updateActive = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
+  stateStore.update(id.value, {...stateStore.get(id.value), active: !stateStore.get(id.value).active});
 }
 const currentLabel = computed(() => {
-  return labels.value[stateStore.trackerState[id.value].state]
+  return labels.value[stateStore.get(id.value).state]
 })
 const handleWheel = (event) => {
   if (event.deltaY < 0) {
@@ -55,6 +53,7 @@ const handleRightClick = () => {
 
 <template>
   <div
+      v-if="stateStore.get(id) !== undefined && stateStore.get(id) !== null"
       class="absolute z-10"
       :style="{
         left: position.x + 'px',
@@ -66,9 +65,9 @@ const handleRightClick = () => {
   >
     <IconItem
         :item="item"
-        :active="stateStore.trackerState[id].active"
+        :active="stateStore.get(id).active"
     ></IconItem>
-    <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)'}" class="z-20 absolute top-[30px] w-full text-center text-xs select-none text-shadow">
+    <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)', fontSize: sizeLabel + 'px'}" class="z-20 absolute top-[30px] w-full text-center text-xs select-none text-shadow">
       {{currentLabel}}
     </div>
   </div>

@@ -58,6 +58,14 @@ export const useTrackerItem= (item) => {
         return item.LabelList
     })
 
+    const globalLabel = computed(() => {
+        return item.GlobalLabel
+    })
+
+    const sizeLabel = computed(() => {
+        return item.LabelSize
+    })
+
     const defaultLabel = computed(() => {
         return item.LabelDefault ?? 0
     })
@@ -78,5 +86,5 @@ export const useTrackerItem= (item) => {
         return item.maxValue ?? 1;
     })
 
-    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, defaultLabel, hasDefaultLabel, checkItem, glow, max, id}
+    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, defaultLabel, globalLabel, sizeLabel, hasDefaultLabel, checkItem, glow, max, id}
 }

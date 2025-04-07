@@ -9,23 +9,23 @@ import { defineProps } from 'vue';
 const props = defineProps({
   width: {
     type: Number,
-    default: 35, // Largeur par défaut d'une cellule
+    default: 35,
   },
   height: {
     type: Number,
-    default: 35, // Hauteur par défaut d'une cellule
+    default: 35,
   },
   column: {
     type: Number,
-    default: 1, // Colonne de la grille (à partir de 1)
+    default: 1,
   },
   row: {
     type: Number,
-    default: 1, // Ligne de la grille (à partir de 1)
+    default: 1,
   },
   image: {
     type: String,
-    required: true, // URL de l'image
+    required: true,
   },
   opacity: {
     type: Number,
@@ -46,7 +46,7 @@ const cropStyle = computed(() => {
     height: `${props.height}px`,
     backgroundImage: `url(${props.image})`,
     backgroundPosition: `-${offsetX}px -${offsetY}px`,
-    backgroundSize: 'auto', // Ajustement en fonction de l'image
+    backgroundSize: 'auto',
     backgroundRepeat: 'no-repeat',
     opacity: props.opacity,
     filter: props.grayScale ? 'grayscale(100%)' : 'none',

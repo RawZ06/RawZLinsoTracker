@@ -11,17 +11,19 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value(props.i
 </script>
 
 <template>
-  <ImageCrop
-      :image="itemSheetImage"
-      :width="itemSheetDimensions.width"
-      :height="itemSheetDimensions.height"
-      :row="sheet(props.item).row"
-      :column="sheet(props.item).column"
-      :opacity="active ? 1 : disabledOpacity(props.item)"
-      :grayScale="!active"
-  ></ImageCrop>
-  <div :style="{fontFamily: 'evolutionItemFont', color: isMaxLabel ? 'var(--color-evolutionItemFont-max)' : 'var(--color-evolutionItemFont)'}" class="z-20 absolute top-[20px] right-[0px] select-none text-shadow" :class="{'hidden': !label(props.item) || !active}">
-    {{label(props.item)}}
+  <div v-if="props.item">
+    <ImageCrop
+        :image="itemSheetImage"
+        :width="itemSheetDimensions.width"
+        :height="itemSheetDimensions.height"
+        :row="sheet(props.item).row"
+        :column="sheet(props.item).column"
+        :opacity="active ? 1 : disabledOpacity(props.item)"
+        :grayScale="!active"
+    ></ImageCrop>
+    <div :style="{fontFamily: 'evolutionItemFont', color: isMaxLabel ? 'var(--color-evolutionItemFont-max)' : 'var(--color-evolutionItemFont)'}" class="z-20 absolute top-[20px] right-[0px] select-none text-shadow" :class="{'hidden': !label(props.item) || !active}">
+      {{label(props.item)}}
+    </div>
   </div>
 </template>
 

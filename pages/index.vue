@@ -1,6 +1,6 @@
 <script setup>
 import {useDefaultFont} from "~/hooks/useCustomFont.js";
-const trackers = ["oot64", "oot64keysanity", "majorasmask64", "compact"]
+const trackers = ["oot64", "oot64keysanity", "majorasmask64", "twilightprincess", "compact", "compactrsl"]
 const trackersInfo = ref({})
 const currentHover = ref('')
 
@@ -39,12 +39,12 @@ const handleOpenTracker = async (tracker) => {
 <template>
 <div class="relative w-[1280px] h-[720px]">
   <img src="/default/background.png" alt="Background" class="absolute inset-0 z-0">
-  <div :style="{fontFamily: 'ViceCitySans'}" class="z-10 relative">
+  <div :style="{fontFamily: 'ViceCitySans'}" class="z-10 relative text-sm text-gray-100">
     <p>LinSoTracker 2.2 - Developed by LinSoraK</p>
     <p>Web Version - Developed by RawZ06</p>
   </div>
   <div class="relative h-[510px] top-[60px] z-10 flex justify-between">
-    <div class="mt-10 ml-10 flex w-1/2">
+    <div class="mt-10 ml-10 grid grid-cols-5 grid-rows-4">
       <NuxtLink @click="handleOpenTracker(tracker)" v-for="tracker of trackers" class="relative w-[122px] h-[122px] grid place-items-center group cursor-pointer" @mouseenter="currentHover = tracker" @mouseleave="currentHover = ''">
         <img :src="`/sources/${tracker}/icon.png`" alt="Background" class="z-30 row-start-1 col-start-1 translate-y-[-5px]">
         <img :src="`/default/glow-official.png`" alt="Glow" class="z-20 row-start-1 col-start-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
