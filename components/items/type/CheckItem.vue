@@ -21,7 +21,7 @@ if(!stateStore.trackerState[id.value]) {
   }
 }
 
-const updateCheckActive = (value) => {
+const updateCheckActive = () => {
   stateStore.update(id.value, {...stateStore.trackerState[id.value], checkActive: !stateStore.trackerState[id.value].checkActive});
 }
 const updateActive = () => {

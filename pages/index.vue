@@ -1,6 +1,6 @@
 <script setup>
 import {useDefaultFont} from "~/hooks/useCustomFont.js";
-const trackers = ["oot64", "oot64keysanity", "majorasmask64", "compact"]
+const trackers = ["oot64", "oot64keysanity", "majorasmask64", "compact", "twilightprincess", "tpcompact"]
 const trackersInfo = ref({})
 const currentHover = ref('')
 
@@ -39,7 +39,7 @@ const handleOpenTracker = async (tracker) => {
 <template>
 <div class="relative w-[1280px] h-[720px]">
   <img src="/default/background.png" alt="Background" class="absolute inset-0 z-0">
-  <div :style="{fontFamily: 'ViceCitySans'}" class="z-10 relative">
+  <div :style="{fontFamily: 'ViceCitySans'}" class="z-10 relative text-sm text-gray-100">
     <p>LinSoTracker 2.2 - Developed by LinSoraK</p>
     <p>Web Version - Developed by RawZ06</p>
   </div>
