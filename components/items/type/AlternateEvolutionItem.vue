@@ -11,27 +11,25 @@ const max = computed(() => {
   return (next?.value?.length ?? 0) + 1
 })
 const stateStore = useTrackerStateStore()
-if(!stateStore.trackerState[id.value]) {
-  stateStore.trackerState[id.value] = {
-    state: 0,
-    active: defaultActive.value
-  }
-}
+stateStore.init(id.value,{
+  state: 0,
+  active: defaultActive.value
+})
 const changeActive = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
+  stateStore.update(id.value, {...stateStore.get(id.value), active: !stateStore.get(id.value).active});
 }
 const updateStateInc = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], state: (stateStore.trackerState[id.value].state + 1)%max.value});
+  stateStore.update(id.value, {...stateStore.get(id.value), state: (stateStore.get(id.value).state + 1)%max.value});
 }
 const updateStateDec = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], state: stateStore.trackerState[id.value].state === 0 ? max - 1 : (stateStore.trackerState[id.value].state - 1)%max.value});
+  stateStore.update(id.value, {...stateStore.get(id.value), state: stateStore.get(id.value).state === 0 ? max - 1 : (stateStore.get(id.value).state - 1)%max.value});
 }
 
 const currentItem = computed(() => {
-  if(stateStore.trackerState[id.value].state < 1) {
+  if(!stateStore.get(id.value) || stateStore.get(id.value)?.state < 1) {
     return props.item;
   } else {
-    return next.value[stateStore.trackerState[id.value].state - 1];
+    return next.value[stateStore.get(id.value).state - 1];
   }
 })
 </script>
@@ -39,6 +37,7 @@ const currentItem = computed(() => {
 <template>
   <div
       class="absolute z-10"
+      v-if="stateStore.get(id) !== undefined && stateStore.get(id) !== null"
       :style="{
         left: position.x + 'px',
         top: position.y + 'px',
@@ -48,8 +47,8 @@ const currentItem = computed(() => {
   >
     <IconItem
         :item="currentItem"
-        :active="stateStore.trackerState[id].active"
-        :isMaxLabel="stateStore.trackerState[id].state === max - 1"
+        :active="stateStore.get(id).active"
+        :isMaxLabel="stateStore.get(id).state === max - 1"
     ></IconItem>
     <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)', fontSize: sizeLabel + 'px'}" class="z-20 absolute top-[30px] w-full text-center text-sm select-none text-shadow">
       {{globalLabel}}

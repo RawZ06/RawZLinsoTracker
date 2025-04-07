@@ -12,12 +12,22 @@ export const useTrackerStateStore = defineStore("default-state", {
         name: null,
     }),
     actions: {
-        update(item, current, isDefault = false) {
+        init(item, current) {
+            if(!this.trackerState[item]) {
+                this.update(item, current);
+            }
+        },
+
+        update(item, current) {
             this.trackerState[item] = current
 
             if(this.subscription) {
                 this.subscription(this.trackerState)
             }
+        },
+
+        get(item) {
+            return this.trackerState[item];
         },
 
         setName(name) {

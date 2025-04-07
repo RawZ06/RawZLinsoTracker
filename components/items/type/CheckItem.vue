@@ -14,23 +14,22 @@ const itemSheetImage = trackerStore.itemSheetImage(sheet.value.name)
 const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
 
 const stateStore = useTrackerStateStore()
-if(!stateStore.trackerState[id.value]) {
-  stateStore.trackerState[id.value] = {
-    checkActive: false,
-    active: defaultActive.value
-  }
-}
+stateStore.init(id.value, {
+  checkActive: false,
+  active: defaultActive.value
+})
 
 const updateCheckActive = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], checkActive: !stateStore.trackerState[id.value].checkActive});
+  stateStore.update(id.value, {...stateStore.get(id.value), checkActive: !stateStore.get(id.value).checkActive});
 }
 const updateActive = () => {
-  stateStore.update(id.value, {...stateStore.trackerState[id.value], active: !stateStore.trackerState[id.value].active});
+  stateStore.update(id.value, {...stateStore.get(id.value), active: !stateStore.get(id.value).active});
 }
 </script>
 
 <template>
   <div
+      v-if="stateStore.get(id) !== undefined && stateStore.get(id) !== null"
       class="absolute z-10"
       :style="{
         left: position.x + 'px',
@@ -41,10 +40,10 @@ const updateActive = () => {
   >
     <IconItem
       :item="item"
-      :active="stateStore.trackerState[id].active"
+      :active="stateStore.get(id).active"
     ></IconItem>
     <div class="relative">
-      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !stateStore.trackerState[id].checkActive}">
+      <div class="absolute -top-[46px] -right-[10px] z-20" :class="{'hidden': !stateStore.get(id).checkActive}">
         <ImageCrop
             :image="itemSheetImage"
             :width="itemSheetDimensions.width"

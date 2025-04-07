@@ -11,9 +11,7 @@ const max = computed(() => {
   return increments.value.length + 2
 })
 const stateStore = useTrackerStateStore()
-if(stateStore.trackerState[id.value] === undefined) {
-  stateStore.update(id.value, defaultActive.value === true ? 1 : 0, true)
-}
+stateStore.init(id.value, defaultActive.value === true ? 1 : 0)
 
 const update = (value) => {
   stateStore.update(id.value, value);
@@ -22,24 +20,25 @@ const update = (value) => {
 
 <template>
   <div
+      v-if="stateStore.get(id) !== undefined && stateStore.get(id) !== null"
       class="absolute z-10"
       :style="{
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="update((stateStore.trackerState[id] + 1)%max)"
-      @contextmenu.prevent="update(stateStore.trackerState[id] === 0 ? max - 1 : (stateStore.trackerState[id] - 1)%max)"
+      @click="update((stateStore.get(id) + 1)%max)"
+      @contextmenu.prevent="update(stateStore.get(id) === 0 ? max - 1 : (stateStore.get(id) - 1)%max)"
   >
     <IconItem
         :item="item"
-        :active="stateStore.trackerState[id] > 0"
+        :active="stateStore.get(id) > 0"
     ></IconItem>
     <div
         class="z-20 absolute top-[20px] select-none text-sm text-shadow"
-        :class="{'hidden': stateStore.trackerState[id]  < 2}"
-        :style="{fontFamily: 'incrementalItemFont', color: stateStore.trackerState[id]  === max-1 ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)'}"
+        :class="{'hidden': stateStore.get(id)  < 2}"
+        :style="{fontFamily: 'incrementalItemFont', color: stateStore.get(id)  === max-1 ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)'}"
     >
-      {{increments[stateStore.trackerState[id] -2]}}
+      {{increments[stateStore.get(id) -2]}}
     </div>
   </div>
 </template>

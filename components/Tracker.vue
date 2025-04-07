@@ -40,7 +40,7 @@ if(props.id) {
 const reset = () => {
   isOpen.value = false
   if(props.id) {
-    fetch('/api/tracker/' + props.id, {method: 'DELETE'}).then(() => {
+    fetch('/api/tracker/' + props.id.toLocaleLowerCase(), {method: 'DELETE'}).then(() => {
       reloadNuxtApp()
     })
   } else {
@@ -54,17 +54,13 @@ const goBackOffline = async () => {
   await navigateTo(`/${props.tracker}`)
 }
 
-// useListenKey(true, true, 'r', () => reset())
+useListenKey(true, true, 'r', () => reset())
 useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
 
 </script>
 
 <template>
   <div v-if="loaded" class="">
-<!--    <UButton v-if="!isSmallWindow" label="Reset" icon="i-heroicons-trash-solid"-->
-<!--             size="sm"-->
-<!--             color="primary"-->
-<!--             :trailing="false" @click="isOpen = true"/>-->
     <div class="relative" :style="{backgroundColor: backgroundColor, width: dimensions.width + 'px', height: dimensions.height + 'px'}">
       <ItemList :isSmallWindow="isSmallWindow" />
       <img :src="background" alt="Background" class="absolute inset-0 z-0">
@@ -74,7 +70,7 @@ useHiddenScrollBarOnSmallWindow(props.isSmallWindow)
     Loading...
   </div>
 <!--  <pre>{{JSON.stringify({-->
-<!--    global: stateStore.getState(),-->
+<!--    // global: stateStore.getState(),-->
 <!--    state: stateStore.trackerState-->
 <!--  }, null, 4)}}</pre>-->
   <UModal v-model="isOpen">

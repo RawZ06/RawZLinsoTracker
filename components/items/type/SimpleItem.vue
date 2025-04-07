@@ -7,17 +7,16 @@ const props = defineProps(['item'])
 
 const {position, id, defaultActive} = useTrackerItem(props.item)
 const stateStore = useTrackerStateStore()
-if(stateStore.trackerState[id.value] === undefined) {
-  stateStore.update(id.value, defaultActive.value === true, true)
-}
+stateStore.init(id.value, defaultActive.value === true)
 
 const update = () => {
-  stateStore.update(id.value, !stateStore.trackerState[id.value]);
+  stateStore.update(id.value, !stateStore.get(id.value));
 }
 </script>
 
 <template>
   <div
+      v-if="stateStore.get(id) !== undefined && stateStore.get(id) !== null"
       class="absolute z-10"
       :style="{
         left: position.x + 'px',
@@ -28,7 +27,7 @@ const update = () => {
   >
     <IconItem
       :item="item"
-      :active="stateStore.trackerState[id]"
+      :active="stateStore.get(id)"
     ></IconItem>
   </div>
 </template>
