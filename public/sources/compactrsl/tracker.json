@@ -2,8 +2,8 @@
     {
         "Informations": {
             "Creator": "ZorroDisco",
-            "Name": "Ocarina Of Time - Compact Keysanity",
-            "Version": "1.0"
+            "Name": "Ocarina Of Time - Compact RSL",
+            "Version": "1.1"
         }
     },
     {
@@ -12,7 +12,7 @@
                 "width": 390,
                 "height": 295
             },
-            "Background": "background_purple.png",
+            "Background": "background_rsl.png",
             "BackgroundColor": {
                 "r": 0,
                 "g": 0,
@@ -291,7 +291,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "Label": "H",
+                "Label": null,
                 "LabelCenter": false,
                 "NextItems": [
                     {
@@ -302,7 +302,7 @@
                             "column": 12,
                             "SpriteSheet": "Normal"
                         },
-                        "Label": "L"
+                        "Label": null
                     }
                 ]
             },
@@ -480,15 +480,15 @@
             {
                 "Id": 22,
                 "Kind": "EvolutionItem",
-                "Name": "Egg",
+                "Name": "egg",
                 "Positions": {
                     "x": 45,
                     "y": 150
                 },
                 "SheetInformation": {
-                    "row": 4,
-                    "column": 10,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 9,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -497,22 +497,12 @@
                 "LabelCenter": false,
                 "NextItems": [
                     {
-                        "Id": 0,
-                        "Name": "Cucco",
-                        "SheetInformation": {
-                            "row": 4,
-                            "column": 11,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
                         "Id": 1,
                         "Name": "Cojiro",
                         "SheetInformation": {
                             "row": 4,
-                            "column": 12,
-                            "SpriteSheet": "Normal"
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -520,9 +510,9 @@
                         "Id": 2,
                         "Name": "Odd Mushroom",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 1,
-                            "SpriteSheet": "Normal"
+                            "row": 2,
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -530,9 +520,9 @@
                         "Id": 3,
                         "Name": "Odd Potion",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 2,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -540,9 +530,9 @@
                         "Id": 4,
                         "Name": "Poacher Saw",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 3,
-                            "SpriteSheet": "Normal"
+                            "row": 1,
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -550,9 +540,9 @@
                         "Id": 5,
                         "Name": "Broken Goron Sword",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 4,
-                            "SpriteSheet": "Normal"
+                            "row": 3,
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -560,9 +550,9 @@
                         "Id": 6,
                         "Name": "Prescription",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 5,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 4,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -570,9 +560,9 @@
                         "Id": 7,
                         "Name": "Eyeball Frog",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 6,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 5,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -580,9 +570,9 @@
                         "Id": 8,
                         "Name": "World Finest Eye Drops",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 7,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 6,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -590,9 +580,9 @@
                         "Id": 9,
                         "Name": "Claim Check",
                         "SheetInformation": {
-                            "row": 5,
-                            "column": 8,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 7,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     }
@@ -601,15 +591,15 @@
             {
                 "Id": 23,
                 "Kind": "EvolutionItem",
-                "Name": "Egg",
+                "Name": "eggChild",
                 "Positions": {
                     "x": 5,
                     "y": 150
                 },
                 "SheetInformation": {
-                    "row": 3,
-                    "column": 10,
-                    "SpriteSheet": "Normal"
+                    "row": 5,
+                    "column": 9,
+                    "SpriteSheet": "Add"
                 },
                 "isActive": false,
                 "Hint": null,
@@ -618,32 +608,12 @@
                 "LabelCenter": false,
                 "NextItems": [
                     {
-                        "Id": 0,
-                        "Name": "Cucco",
-                        "SheetInformation": {
-                            "row": 3,
-                            "column": 11,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
-                        "Id": 1,
-                        "Name": "Zelda Letter",
-                        "SheetInformation": {
-                            "row": 3,
-                            "column": 12,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
                         "Id": 2,
                         "Name": "Keaton Mask",
                         "SheetInformation": {
-                            "row": 4,
-                            "column": 1,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 2,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
@@ -651,39 +621,19 @@
                         "Id": 3,
                         "Name": "Skull Mask",
                         "SheetInformation": {
-                            "row": 4,
-                            "column": 2,
-                            "SpriteSheet": "Normal"
+                            "row": 6,
+                            "column": 3,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     },
                     {
                         "Id": 4,
-                        "Name": "Spooky Mask",
-                        "SheetInformation": {
-                            "row": 4,
-                            "column": 3,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
-                        "Id": 5,
-                        "Name": "Bunny Hood",
-                        "SheetInformation": {
-                            "row": 4,
-                            "column": 4,
-                            "SpriteSheet": "Normal"
-                        },
-                        "Label": null
-                    },
-                    {
-                        "Id": 9,
                         "Name": "Mask of Truth",
                         "SheetInformation": {
-                            "row": 4,
-                            "column": 8,
-                            "SpriteSheet": "Normal"
+                            "row": 7,
+                            "column": 9,
+                            "SpriteSheet": "Add"
                         },
                         "Label": null
                     }
@@ -742,7 +692,7 @@
             },
             {
                 "Id": 26,
-                "Kind": "EvolutionItem",
+                "Kind": "Item",
                 "Name": "Biggoron Sword",
                 "Positions": {
                     "x": 45,
@@ -755,18 +705,7 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5,
-                "NextItems": [
-                    {
-                        "Id": 0,
-                        "Name": "Giant Knife",
-                        "SheetInformation": {
-                            "row": 5,
-                            "column": 4,
-                            "SpriteSheet": "Add"
-                        }
-                    }
-                ]
+                "OpacityDisable": 0.5
             },
             {
                 "Id": 28,
@@ -1413,7 +1352,7 @@
                 "Kind": "CheckItem",
                 "Name": "Song of Time",
                 "Positions": {
-                    "x": 324,
+                    "x": 323,
                     "y": 140
                 },
                 "SheetInformation": {
@@ -1435,7 +1374,7 @@
                 "Kind": "CheckItem",
                 "Name": "Song of Storms",
                 "Positions": {
-                    "x": 356,
+                    "x": 354,
                     "y": 140
                 },
                 "SheetInformation": {
@@ -1601,7 +1540,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
-                "maxValueAlternate": 5
+                "maxValueAlternate": 5,
+                "labelPosition": "left"
             },
             {
                 "Id": 65,
@@ -1620,7 +1560,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 8,
-                "maxValueAlternate": 8
+                "maxValueAlternate": 8,
+                "labelPosition": "left"
             },
             {
                 "Id": 66,
@@ -1639,7 +1580,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 6,
-                "maxValueAlternate": 6
+                "maxValueAlternate": 6,
+                "labelPosition": "left"
             },
             {
                 "Id": 67,
@@ -1658,7 +1600,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
-                "maxValueAlternate": 5
+                "maxValueAlternate": 5,
+                "labelPosition": "left"
             },
             {
                 "Id": 68,
@@ -1677,7 +1620,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
-                "maxValueAlternate": 5
+                "maxValueAlternate": 5,
+                "labelPosition": "left"
             },
             {
                 "Id": 69,
@@ -1696,7 +1640,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 2,
-                "maxValueAlternate": 2
+                "maxValueAlternate": 2,
+                "labelPosition": "left"
             },
             {
                 "Id": 70,
@@ -1715,7 +1660,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 3,
-                "maxValueAlternate": 3
+                "maxValueAlternate": 3,
+                "labelPosition": "left"
             },
             {
                 "Id": 71,
@@ -1734,7 +1680,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 9,
-                "maxValueAlternate": 9
+                "maxValueAlternate": 9,
+                "labelPosition": "left"
             },
             {
                 "Id": 72,
@@ -1751,7 +1698,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 73,
@@ -1768,7 +1716,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 74,
@@ -1785,7 +1734,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 75,
@@ -1802,7 +1752,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 76,
@@ -1819,7 +1770,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 77,
@@ -1836,7 +1788,8 @@
                 },
                 "isActive": false,
                 "Hint": null,
-                "OpacityDisable": 0.5
+                "OpacityDisable": 0.5,
+                "labelPosition": "left"
             },
             {
                 "Id": 78,
@@ -1855,7 +1808,8 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "maxValue": 100,
-                "maxValueAlternate": 100
+                "maxValueAlternate": 100,
+                "labelPosition": "left"
             }
          ]
     } 

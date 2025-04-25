@@ -86,5 +86,9 @@ export const useTrackerItem= (item) => {
         return item.maxValue ?? 1;
     })
 
-    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, defaultLabel, globalLabel, sizeLabel, hasDefaultLabel, checkItem, glow, max, id}
+    const labelPosition = computed(() => {
+        return item.labelPosition ?? 'classic';
+    })
+
+    return {sheet, position, name, itemType, disabledOpacity, defaultActive, increments, next, label, count, labels, defaultLabel, globalLabel, sizeLabel, hasDefaultLabel, checkItem, glow, max, id, labelPosition}
 }
