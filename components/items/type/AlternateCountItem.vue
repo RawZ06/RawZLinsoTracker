@@ -14,6 +14,22 @@ const update = (value) => {
 }
 const trackerStore = useTrackerStore();
 const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
+
+const updateStateInc = () => {
+  update((stateStore.get(id.value) + 1)%(max.value + 1))
+};
+const updateStateDec = () => {
+  update((stateStore.get(id.value) === 0 ? max.value : (stateStore.get(id.value) - 1)%(max.value+1)))
+};
+
+const handleWheel = (event) => {
+  if (event.deltaY < 0) {
+    updateStateDec()
+  } else {
+    updateStateInc()
+  }
+}
+
 </script>
 
 <template>
@@ -24,8 +40,9 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
         left: position.x + 'px',
         top: position.y + 'px',
       }"
-      @click="update((stateStore.get(id) + 1)%(max + 1))"
-      @contextmenu.prevent="update((stateStore.get(id) === 0 ? max : (stateStore.get(id) - 1)%(max+1)))"
+      @click="updateStateInc()"
+      @contextmenu.prevent="updateStateDec()"
+      @wheel.prevent="handleWheel($event)"
 
   >
     <IconItem
