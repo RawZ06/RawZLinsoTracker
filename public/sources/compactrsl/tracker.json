@@ -1528,7 +1528,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Forest Key",
                 "Positions": {
-                    "x": 5,
+                    "x": 7,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1548,7 +1548,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Fire Key",
                 "Positions": {
-                    "x": 54,
+                    "x": 56,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1568,7 +1568,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Water Key",
                 "Positions": {
-                    "x": 103,
+                    "x": 105,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1588,7 +1588,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Shadow Key",
                 "Positions": {
-                    "x": 152,
+                    "x": 154,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1608,7 +1608,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Spirit Key",
                 "Positions": {
-                    "x": 201,
+                    "x": 203,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1628,7 +1628,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Ganon Key",
                 "Positions": {
-                    "x": 250,
+                    "x": 252,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1648,7 +1648,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "Botw Key",
                 "Positions": {
-                    "x": 299,
+                    "x": 301,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1668,7 +1668,7 @@
                 "Kind": "AlternateCountItem",
                 "Name": "GTG Key",
                 "Positions": {
-                    "x": 324,
+                    "x": 326,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1688,7 +1688,7 @@
                 "Kind": "Item",
                 "Name": "Forest BK",
                 "Positions": {
-                    "x": 27,
+                    "x": 29,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1706,7 +1706,7 @@
                 "Kind": "Item",
                 "Name": "Fire BK",
                 "Positions": {
-                    "x": 76,
+                    "x": 78,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1724,7 +1724,7 @@
                 "Kind": "Item",
                 "Name": "Water BK",
                 "Positions": {
-                    "x": 125,
+                    "x": 127,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1742,7 +1742,7 @@
                 "Kind": "Item",
                 "Name": "Shadow BK",
                 "Positions": {
-                    "x": 174,
+                    "x": 176,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1760,7 +1760,7 @@
                 "Kind": "Item",
                 "Name": "Spirit BK",
                 "Positions": {
-                    "x": 223,
+                    "x": 225,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1778,7 +1778,7 @@
                 "Kind": "Item",
                 "Name": "Ganon BK",
                 "Positions": {
-                    "x": 272,
+                    "x": 274,
                     "y": 267
                 },
                 "SheetInformation": {
@@ -1809,7 +1809,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 100,
                 "maxValueAlternate": 100,
-                "labelPosition": "left"
+                "labelPosition": "right"
             }
          ]
     } 

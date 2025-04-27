@@ -51,6 +51,11 @@ const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
         </span>
       </span>
     </div>
+    <template v-else-if="labelPosition === 'right'">
+      <div v-if="stateStore.get(id) > 0" :style="{fontFamily: 'countItemFont', color: stateStore.get(id)  === max ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)', hidden: stateStore.get(id) === 0 ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)'}" class="z-20 absolute bottom-[-7px] left-[8px] align-middle inline-block text-center w-full text-sm select-none text-shadow">
+        {{stateStore.get(id)}}
+      </div>
+    </template>
     <template v-else>
       <div v-if="stateStore.get(id) > 0" :style="{fontFamily: 'countItemFont', color: stateStore.get(id)  === max ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)', hidden: stateStore.get(id) === 0 ? 'var(--color-incrementalItemFont-max)' : 'var(--color-incrementalItemFont)'}" class="z-20 absolute bottom-[-3px] right-[-10px] align-middle inline-block text-center w-full text-lg select-none text-shadow">
         {{stateStore.get(id)}}
