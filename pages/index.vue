@@ -18,7 +18,8 @@ trackers.forEach((tracker) => {
   load(tracker).then((info) => trackersInfo.value[tracker] = {
     name: info[0].Informations.Name,
     creator: info[0].Informations.Creator,
-    version: info[0].Informations.Version
+    version: info[0].Informations.Version,
+    description: info[0].Informations.Comments
   })
 })
 
@@ -40,8 +41,9 @@ const handleOpenTracker = async (tracker) => {
 <div class="relative w-[1280px] h-[720px]">
   <img src="/default/background.png" alt="Background" class="absolute inset-0 z-0">
   <div :style="{fontFamily: 'ViceCitySans'}" class="z-10 relative text-sm text-gray-100">
-    <p>LinSoTracker 2.2 - Developed by LinSoraK</p>
-    <p>Web Version - Developed by RawZ06</p>
+    <p>Based on LinSoTracker 2.2 - Developed by LinSoraK</p>
+    <p>Web Version 2.0 - Developed by RawZ06</p>
+    <p class="text-red-500 font-bold">Only for Restream use, please use Linsotracker app for personal use</p>
   </div>
   <div class="relative h-[510px] top-[60px] z-10 flex justify-between">
     <div class="mt-10 ml-10 grid grid-cols-5 grid-rows-4">
@@ -62,6 +64,9 @@ const handleOpenTracker = async (tracker) => {
           </p>
           <p class="text-sm">
             <span class="font-semibold">Version :</span> {{trackersInfo[currentHover].version}}
+          </p>
+          <p class="text-sm" v-if="trackersInfo[currentHover].description">
+            <span class="font-semibold">Description :</span> {{trackersInfo[currentHover].description}}
           </p>
         </div>
       </div>

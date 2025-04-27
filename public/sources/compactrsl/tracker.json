@@ -3,7 +3,8 @@
         "Informations": {
             "Creator": "ZorroDisco",
             "Name": "Ocarina Of Time - Compact RSL",
-            "Version": "1.1"
+            "Version": "1.1",
+            "Comments": "Tracker for RSL and Franco restream"
         }
     },
     {
@@ -607,6 +608,16 @@
                 "Label": null,
                 "LabelCenter": false,
                 "NextItems": [
+                    {
+                        "Id": 1,
+                        "Name": "Letter",
+                        "SheetInformation": {
+                            "row": 6,
+                            "column": 1,
+                            "SpriteSheet": "Add"
+                        },
+                        "Label": null
+                    },
                     {
                         "Id": 2,
                         "Name": "Keaton Mask",
