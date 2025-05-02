@@ -718,7 +718,7 @@
                 },
                 "isActive": false,
                 "Hint": "",
-                "OpacityDisable": 0.5,
+                "OpacityDisable": 0.35,
                 "LabelList": [
                     "????",
                     "FRST",
