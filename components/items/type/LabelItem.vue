@@ -6,7 +6,9 @@ import {useTrackerStateStore} from "~/stores/state-store.js";
 
 const props = defineProps(['item'])
 
-const {position, defaultActive, id, labels, defaultLabel, sizeLabel, name, hasDefaultLabel} = useTrackerItem(props.item)
+const {position, sheet, defaultActive, id, labels, defaultLabel, sizeLabel, hasDefaultLabel} = useTrackerItem(props.item)
+const trackerStore = useTrackerStore();
+const itemSheetDimensions = trackerStore.itemSheetDimensions(sheet.value.name)
 const stateStore = useTrackerStateStore()
 stateStore.init(id.value, {
   state: defaultLabel.value ?? 0,
@@ -67,7 +69,7 @@ const handleRightClick = () => {
         :item="item"
         :active="stateStore.get(id).active"
     ></IconItem>
-    <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)', fontSize: sizeLabel + 'px'}" class="z-20 absolute top-[30px] w-full text-center text-xs select-none text-shadow">
+    <div :style="{fontFamily: 'labelItemFont', color: 'var(--color-labelItemFont)', fontSize: sizeLabel + 'px', top: itemSheetDimensions.height - item.OffsetLabel + 'px'}" class="z-20 absolute w-full text-center text-xs select-none text-shadow">
       {{currentLabel}}
     </div>
   </div>

@@ -21,7 +21,7 @@ useOpenSmallWindow(dim.width, dim.height)
 </script>
 
 <template>
-  <div v-for="item of items" class="relative">
+  <div v-for="item of items" :name="item.Name" :type="item.Kind" class="relative">
     <Item :item="item" />
   </div>
 </template>

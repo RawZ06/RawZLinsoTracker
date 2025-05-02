@@ -1,6 +1,6 @@
 <script setup>
 import {useDefaultFont} from "~/hooks/useCustomFont.js";
-const trackers = ["compact", "compactrsl"]
+const trackers = ["compact", "compactrsl", 'compacttp']
 const trackersInfo = ref({})
 const currentHover = ref('')
 
