@@ -371,7 +371,7 @@
 			},
 			{
 				"Id": 23,
-				"Kind": "AlternateCountItem",
+				"Kind": "Item",
 				"Name": "Ancient Sky Book",
 				"Positions": {
 					"x": 275,
