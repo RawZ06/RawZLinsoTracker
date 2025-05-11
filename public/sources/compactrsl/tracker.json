@@ -292,7 +292,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "Label": null,
+                "Label": "H",
                 "LabelCenter": false,
                 "NextItems": [
                     {
@@ -303,7 +303,7 @@
                             "column": 12,
                             "SpriteSheet": "Normal"
                         },
-                        "Label": null
+                        "Label": "L"
                     }
                 ]
             },
