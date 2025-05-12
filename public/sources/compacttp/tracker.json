@@ -80,8 +80,8 @@
                     }
                 }
             },
-            "labelItemFont": {
-                "Name": "Outfit-Regular.ttf",
+             "labelItemFont": {
+                "Name": "Outfit-Bold.ttf",
                 "Size": 13,
                 "Colors": {
                     "Normal": {
@@ -249,9 +249,6 @@
 				"OpacityDisable": 0.4,
 				"StartIncrementIndex": 0,
 				"Increment": [
-					"30",
-					"60",
-					"100"
 				]
 			},
 			{
@@ -270,8 +267,10 @@
 				"isActive": false,
 				"Hint": null,
 				"OpacityDisable": 0.4,
+				"LabelSize": 7,
 				"maxValue": 3,
-				"maxValueAlternate": 3
+				"maxValueAlternate": 3,
+				"labelPosition": "right"
 			},
 			{
 				"Id": 8,
@@ -577,6 +576,7 @@
 				"Hint": null,
 				"OpacityDisable": 0.4,
 				"OffsetLabel": 15,
+				"LabelSize": 11,
 				"LabelList": [
 					"Auru"
 				]
@@ -598,6 +598,7 @@
 				"Hint": null,
 				"OpacityDisable": 0.4,
 				"OffsetLabel": 15,
+				"LabelSize": 11,
 				"LabelList": [
 					"Ashei"
 				]
@@ -635,6 +636,8 @@
                 "isActive": false,
                 "Hint": "",
                 "OpacityDisable": 0.5,
+				"OffsetLabel": 3,
+				"LabelSize": 13,
                 "LabelList": [
 					"????",
                     "FRST",
@@ -663,6 +666,8 @@
                 "isActive": false,
                 "Hint": "",
                 "OpacityDisable": 0.5,
+				"OffsetLabel": 3,
+				"LabelSize": 13,
                 "LabelList": [
                     "????",
                     "FRST",
@@ -691,6 +696,8 @@
                 "isActive": false,
                 "Hint": "",
                 "OpacityDisable": 0.5,
+				"OffsetLabel": 3,
+				"LabelSize": 13,
                 "LabelList": [
                     "????",
                     "FRST",
@@ -719,6 +726,8 @@
                 "isActive": false,
                 "Hint": "",
                 "OpacityDisable": 0.35,
+				"OffsetLabel": 3,
+				"LabelSize": 13,
                 "LabelList": [
                     "????",
                     "FRST",
