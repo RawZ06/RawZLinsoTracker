@@ -3,9 +3,9 @@
     {
         "Informations": {
             "Creator": "ZorroDisco",
-            "Name": "Ocarina Of Time - Compact RSL - Franco",
+            "Name": "Ocarina Of Time - Compact RSL Pot of Time",
             "Version": "1.1",
-            "Comments": "Tracker for RSL and Franco restream"
+            "Comments": "Tracker for Pot of Time RSL restream"
         }
     },
     {
@@ -14,7 +14,7 @@
                 "width": 390,
                 "height": 295
             },
-            "Background": "backgroundrsl.png",
+            "Background": "background_pot.png",
             "BackgroundColor": {
                 "r": 0,
                 "g": 0,
