@@ -610,6 +610,16 @@
                 "LabelCenter": false,
                 "NextItems": [
                     {
+                        "Id": 1,
+                        "Name": "Letter",
+                        "SheetInformation": {
+                            "row": 6,
+                            "column": 1,
+                            "SpriteSheet": "Add"
+                        },
+                        "Label": null
+                    },
+                    {
                         "Id": 2,
                         "Name": "Keaton Mask",
                         "SheetInformation": {
