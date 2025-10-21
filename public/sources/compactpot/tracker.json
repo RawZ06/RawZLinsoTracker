@@ -1552,7 +1552,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
                 "maxValueAlternate": 5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 65,
@@ -1572,7 +1572,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 8,
                 "maxValueAlternate": 8,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 66,
@@ -1592,7 +1592,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 6,
                 "maxValueAlternate": 6,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 67,
@@ -1612,7 +1612,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
                 "maxValueAlternate": 5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 68,
@@ -1632,7 +1632,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 5,
                 "maxValueAlternate": 5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 69,
@@ -1652,7 +1652,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 2,
                 "maxValueAlternate": 2,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 70,
@@ -1672,7 +1672,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 3,
                 "maxValueAlternate": 3,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 71,
@@ -1692,7 +1692,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 9,
                 "maxValueAlternate": 9,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 79,
@@ -1712,7 +1712,7 @@
                 "OpacityDisable": 0.5,
                 "maxValue": 4,
                 "maxValueAlternate": 4,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 80,
@@ -1730,9 +1730,9 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "maxValue": 5,
+                "maxValue": 6,
                 "maxValueAlternate": 5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 72,
@@ -1750,7 +1750,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 73,
@@ -1768,7 +1768,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 74,
@@ -1786,7 +1786,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 75,
@@ -1804,7 +1804,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 76,
@@ -1822,7 +1822,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 77,
@@ -1840,7 +1840,7 @@
                 "isActive": false,
                 "Hint": null,
                 "OpacityDisable": 0.5,
-                "labelPosition": "left"
+                "labelPosition": "right"
             },
             {
                 "Id": 78,
