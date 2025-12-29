@@ -784,8 +784,8 @@
             },
             {
                 "Id": 40,
-                "Kind": "Item",
-                "Name": "Magic I",
+                "Kind": "EvolutionItem",
+                "Name": "MagicI",
                 "Positions": {
                     "x": 85,
                     "y": 110
@@ -799,7 +799,19 @@
                 "Hint": null,
                 "OpacityDisable": 0.5,
                 "Label": null,
-                "LabelCenter": false
+                "LabelCenter": false,
+                "NextItems": [
+                    {
+                        "Id": 0,
+                        "Name": "Magic II",
+                        "SheetInformation": {
+                            "row": 3,
+                            "column": 5,
+                            "SpriteSheet": "Add"
+                        },
+                        "Label": null
+                    }
+                ]
             },
             {
                 "Id": 42,
